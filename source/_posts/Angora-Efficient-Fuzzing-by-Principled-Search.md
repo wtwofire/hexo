@@ -34,7 +34,7 @@ categories:
 
 ​        Angora大大超过了最先进的模糊器。表1比较了Angora与其他模糊器在LAVA-M数据集上发现的漏洞[9]。Angora在数据集中的每个程序中发现了更多错误。特别是，Angora发现了1541个漏洞，是第二个最好的模糊器Steelix发现的漏洞数量的8倍。此外，Angora发现了LAVA作者注射但却无法触发的103个错误。我们还在八个流行的，成熟的开源程序上测试了Angora。Angora分别在file，jhead，nm，objdump和size中发现了6,52,29,40和48个新错误（表5）。我们测量了Angora的覆盖范围，并评估了其关键技术如何促成其令人印象深刻的性能。
 
-![图1](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图1.png)
+![p1](Angora-Efficient-Fuzzing-by-Principled-Search/p1.png)
 
 #  2 背景：AFL
 
@@ -84,7 +84,7 @@ categories:
 
 - 仅仅改变输入中的字节是不够的。只有在输入超过阈值后才会触发一些错误，但这会在决定输入长度时产生两难。如果输入太短，则可能不会触发某些错误。但如果输入太长，程序可能运行得太慢。大多数模糊器使用临时方法改变输入的长度。相比之下，Angora使用代码检测程序，该代码检测较长输入何时可以探索新分支并确定所需的最小长度（第3.6节）。
 
-![图2](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图2.png)
+![图2](Angora-Efficient-Fuzzing-by-Principled-Search/图2.png)
 
 ​	图1显示了fuzzing条件语句的步骤图。图2中的程序演示了这些步骤。
 
@@ -98,9 +98,9 @@ categories:
 
 ​       由于fread的返回值与1024进行比较，因此Angora知道只有至少1024字节长的输入才能探索错误分支。类似地，第16行和第19行的检测指示Angora将输入扩展到至少1032个字节以执行函数foo。
 
-![图3](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图3.png)
+![图3](Angora-Efficient-Fuzzing-by-Principled-Search/图3.png)
 
-![图4](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图4.png)
+![图4](Angora-Efficient-Fuzzing-by-Principled-Search\图4.png)
 
 ##  3.2 上下文敏感的分支计数
 
@@ -162,7 +162,7 @@ categories:
 
 ​        该数据结构极大地减少了用于存储位向量的存储器占用。设每个位向量的长度为n，并设有l个位向量。如果我们天真地将所有位向量存储在查找表中，则需要O（nl）空间。但是，在我们的数据结构中，树中的节点数是O（l）。每个节点可以存储最多一个索引到查找表。由于查找表具有l个条目并且每个条目是指针并且因此具有固定大小，因此查找表的大小是O（l），并且查找表的每个索引具有O（log 1）位。因此，总空间要求为O（l·log l）。
 
-![图5](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图5.jpg)
+![图5](Angora-Efficient-Fuzzing-by-Principled-Search\图5.jpg)
 
 ## 3.4 基于梯度下降的搜索算法
 
@@ -198,7 +198,7 @@ categories:
 
 ​       请注意，Angora不会生成f（x）的分析形式，而是运行程序来计算f（x）。
 
-![图6](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图6.png)
+![图6](Angora-Efficient-Fuzzing-by-Principled-Search\图6.png)
 
 ## 3.5形状和类型推断
 
@@ -210,7 +210,7 @@ categories:
 
 ​	对于形状推断，最初输入中的所有字节都是独立的。在污点分析期间，当指令将输入字节序列读入变量，其中序列的大小与基本类型的大小匹配（例如，1,2,4,8字节）时，Angora将这些字节标记为属于相同的值。当冲突发生时，Angora使用最小的尺寸。对于类型推断，Angora依赖于对值进行操作的指令的语义。例如，如果指令对有符号整数进行操作，则Angora将相应的操作数推断为有符号整数。当相同的值同时用作有符号和无符号类型时，Angora将其视为无符号类型。请注意，当Angora无法推断出值的精确大小和类型时，这并不能防止梯度下降找到解决方案 - 搜索只需要更长的时间。
 
-![图7](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图7.png)
+![图7](Angora-Efficient-Fuzzing-by-Principled-Search\图7.png)
 
 ## 3.6 输入长度探索
 
@@ -272,13 +272,13 @@ categories:
 
 ​	LAVA为每个注入的bug分配一个唯一的ID，该ID在触发错误时打印。文件验证的错误列出了LAVA作者在创建LAVA时能够触发的所有注入错误。Angora不仅发现了uniq，base64，md5sum中列出的所有错误以及大多数列出的错误，还列出了103个未列出的错误（LAVA作者注入但无法触发的错误）。表3显示了这些未列出的错误的ID。表4显示了Angora发现的列出和未列出的错误的细分。
 
-![图8](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图8.png)
+![图8](Angora-Efficient-Fuzzing-by-Principled-Search\图8.png)
 
 ​	图4显示了Angora在who中随着时间的推移发现的错误累积数量。我们没有显示其他模糊器的结果，因为他们发现who没有错误。图4显示，最初Angora很快发现了错误，在不到五分钟内发现了1000个错误。然后发现速度减慢，但在总共2136个列出的错误中，它仅在45分钟内发现超过1500个错误。
 
 ​	我们接下来解释为什么Angora发现了比下一个最好的模糊器更多的错误。首先，LAVA使用“魔术字节”来保护包含错误的分支，但是一些魔术字节不是直接从输入复制而是从输入计算。由于VUzzer和Steelix的“魔术字节”策略只能将魔术字节直接复制到输入，因此该策略无法创建探索这些分支的输入。相比之下，Angora跟踪流入判定的输入字节偏移，然后通过梯度下降而不是假设“魔术字节”或输入与判定之间的任何其他特殊关系来改变这些偏移，因此Angora可以找到探索这些的输入分支机构。其次，VUzzer盲目地尝试“魔术字节”策略，一旦魔术字节中的一个与随机突变后的输入中的字节匹配，Steelix就会关注“魔术字节”策略。相比之下，Angora安排其所有计算能力来解决未探测分支上的路径约束，因此它可以覆盖更多分支，因此可以快速找到LAVA-M中的大部分注入错误。
 
-![图9](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图9.png)
+![图9](Angora-Efficient-Fuzzing-by-Principled-Search\图9.png)
 
 ## 5.2 在未修改的真实程序中评估Angora
 
@@ -288,9 +288,9 @@ categories:
 
 ​	图5比较了Angora和AFL随时间的累积线和分支覆盖率。它表明Angora在任何时候都覆盖了比AFL更多的线和分支。Angora优越覆盖的原因在于它可以探索复杂条件语句的两个分支。例如，图6显示了文件中的这样一个语句，其中Angora成功地探索了两个分支，但AFL无法探索真正的分支。在接下来的部分中，我们将评估Angora的每个关键特性如何有助于其卓越的性能。
 
-![图10](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图10.png)
+![图10](Angora-Efficient-Fuzzing-by-Principled-Search\图10.png)
 
-![图11](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图11.png)
+![图11](Angora-Efficient-Fuzzing-by-Principled-Search\图11.png)
 
 5.3上下文相关的分支计数
 
@@ -300,7 +300,7 @@ categories:
 
 ​	我们评估了5.2节中描述的真实世界程序中有多少独特的分支上下文相关性。 AFL的作者观察到，唯一分支（没有上下文）的数量通常在2k到10k之间，而具有216个bucket的哈希表应该足以满足常见情况[30]。表7显示合并上下文相关度将唯一分支的数量增加了至多8倍，这要求我们将散列表的大小增加8倍以具有相同的预期散列冲突率。默认情况下，Angora在其哈希表中分配220个bucket，这是AFL中哈希表的16倍，对大多数程序来说应该足够了。虽然在不再适合缓存时增加哈希表可能是有害的，但不像AFL那样遍历哈希表以查找新路径并优先处理覆盖许多基本块的输入，对于每个输入，Angora只遍历哈希表一次找到新的路径。因此，Angora受哈希表大小增长的影响较小，如第5.6节中的执行速度所示。
 
-![图12](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图12.png)
+![图12](Angora-Efficient-Fuzzing-by-Principled-Search\图12.png)
 
 ## 5.4 基于梯度下降的搜索
 
@@ -318,7 +318,7 @@ categories:
 
 ​       我们分别用我们提出的策略和随机策略运行Angora五小时。表9显示Angora的策略将输入长度增加了大约两个数量级，比随机策略少了几个数量级，但它在所有情况下都发现了更有用的输入，除了两个：在readpng它发现总共46个中有用输入少3个，并且在jhead上，既没有策略发现任何有用的输入，因为jhead只解析图像的标题，因此不受图像数据长度的影响。表9还显示，虽然Angora的策略产生了更多有用的输入，但它在每个测试程序上平均产生较短的输入。较短的输入使许多程序运行得更快。该评估表明，Angora的战略比随机战略产生更高质量的投入。
 
-![图13](F:\GitHub\hexo\source\_posts\Angora-Efficient-Fuzzing-by-Principled-Search\图13.png)
+![图13](Angora-Efficient-Fuzzing-by-Principled-Search\图13.png)
 
 5.6 执行速度
 
