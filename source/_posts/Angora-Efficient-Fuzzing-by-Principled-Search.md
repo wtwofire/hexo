@@ -12,6 +12,14 @@ categories:
 - fuzzing
 ---
 
+*作者*： Peng Chen, Hao Chen
+
+*单位*：ShanghaiTech University, University of California, Davis
+
+*出处*：IEEE S&P’18
+
+*原文地址*：https://github.com/wtwofire/database/blob/master/papers/2018Angora%20Efficient%20Fuzzing%20by%20Principled%20Search.pdf
+
 # Abstract
 
 ​	Fuzzing是一种用于查找软件错误的流行技术。然而，最先进的模糊器的性能还有很多不足之处。基于符号执行的模糊器产生高质量输入但运行缓慢，而基于随机变异的模糊器运行速度快但难以产生高质量输入。我们提出了一种新的基于突变的模糊器Angora，它的性能远远超过了最先进的模糊器。Angora的主要目标是通过解决路径约束来增加分支覆盖率而无需符号执行。为了有效地解决路径约束，我们引入了几个关键技术：可扩展的字节级污点跟踪，上下文敏感的分支计数，基于梯度下降的搜索和输入长度探索。在LAVA-M数据集上，Angora发现了几乎所有注入的错误，发现了比我们比较的任何其他模糊器更多的错误，并且发现错误是程序中第二好的模糊器的8倍。Angora还发现了LAVA作者注射但却无法触发的103个错误。我们还在八个流行的，成熟的开源程序上测试了Angora。Angora分别在file，jhead，nm，objdump和size中发现了6,52,29,40和48个新错误。我们测量了Angora的覆盖范围，并评估了其关键技术如何促成其令人印象深刻的性能。
