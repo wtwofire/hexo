@@ -90,7 +90,7 @@ jsonContent:
     path: true
     text: true
     raw: false
-    content: false
+    content: true
     slug: false
     updated: false
     comments: false
