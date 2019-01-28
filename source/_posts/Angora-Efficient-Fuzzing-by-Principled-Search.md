@@ -18,14 +18,14 @@ categories:
 
 ​	Fuzzing是一种用于查找软件错误的流行技术。然而，最先进的模糊器的性能还有很多不足之处。基于符号执行的模糊器产生高质量输入但运行缓慢，而基于随机变异的模糊器运行速度快但难以产生高质量输入。我们提出了一种新的基于突变的模糊器Angora，它的性能远远超过了最先进的模糊器。Angora的主要目标是通过解决路径约束来增加分支覆盖率而无需符号执行。**为了有效地解决路径约束，我们引入了几个关键技术：可扩展的字节级污点跟踪，上下文敏感的分支计数，基于梯度下降的搜索和输入长度探索**。在LAVA-M数据集上，Angora发现了几乎所有注入的错误，发现了比我们比较的任何其他模糊器更多的错误，并且发现错误是程序中第二好的模糊器的8倍。Angora还发现了LAVA作者注射但却无法触发的103个错误。我们还在八个流行的，成熟的开源程序上测试了Angora。Angora分别在file，jhead，nm，objdump和size中发现了6,52,29,40和48个新错误。我们测量了Angora的覆盖范围，并评估了其关键技术如何促成其令人印象深刻的性能。
 
-| **论文相关信息：**                                           |
-| :----------------------------------------------------------- |
-| *作者*： Peng Chen, Hao Chen                                 |
-| *单位*：ShanghaiTech University, University of California, Davis |
-| *出处*：IEEE S&P’18                                          |
-| *原文地址*：https://github.com/wtwofire/database/blob/master/papers/2018Angora%20Efficient%20Fuzzing%20by%20Principled%20Search.pdf |
-| *源码地址*：https://github.com/AngoraFuzzer/Angora           |
-| *发表时间*：2018年                                           |
+| relevant information |                                                              |
+| :------------------- | ------------------------------------------------------------ |
+| *作者*               | Peng Chen, Hao Chen                                          |
+| *单位*               | ShanghaiTech University, University of California, Davis     |
+| *出处*               | IEEE S&P’18                                                  |
+| *原文地址*           | https://github.com/wtwofire/database/blob/master/papers/fuzzing/2018Angora%20Efficient%20Fuzzing%20by%20Principled%20Search.pdf |
+| *源码地址*           | https://github.com/AngoraFuzzer/Angora                       |
+| *发表时间*           | 2018年                                                       |
 
 # 1 简介
 
@@ -359,74 +359,3 @@ Angora的污染追踪代价很高。然而，Angora为每个输入运行一次�
 
 ​	我们设计并实现了Angora，这是一种强大的基于突变的模糊器，可以产生高质量的输入，这得益于以下关键技术：可扩展的字节级污点跟踪，上下文敏感的分支计数，基于梯度下降的搜索算法，形状和类型推断和输入长度探索。Angora在很大程度上超越了其他最先进的模糊器。它发现了比LAVA-M上的其他模糊器明显更多的错误，发现了当他们准备数据集时LAVA作者无法触发的103个错误，以及8个流行的，成熟的开源程序中总共175个新错误。我们的评估显示，Angora将模糊测试的标准提升到了一个新的水平。
 
-# 8 致谢
-
-​	我们感谢Dongyu Meng在整个项目中的有益讨论以及对本文草稿的审阅。由于匿名审稿人的详细反馈，该文件得到了很大改善。
-
-# 参考文献
-
-[1]  American fuzzy lop. URL: <http://lcamtuf.coredump.cx/afl/>.
-
-[2]   Sofia Bekrar et al. “A taint based approach for smart fuzzing”. In: IEEE International Conference on Software Testing, Verification and Validation (ICST). 2012, pp. 818–825.
-
-[3]  Binary fuzzing strategies: what works, what doesn’t. URL: <https://lcamtuf.blogspot.sg/2014/08/binaryfuzzing-strategies-what-works.html>.
-
-[4]  Marcel Bhme, Van-Thuan Pham, and Abhik Roychoudhury. “Coverage-based greybox fuzzing as markov chain”. In: Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security. 2016, pp. 1032–1043.
-
-[5]  Cristian Cadar, Daniel Dunbar, and Dawson R Engler. “KLEE: unassisted and automatic generation of highCoverage tests for complex systems programs.” In: OSDI. Vol. 8. 2008, pp. 209–224.
-
-[6]  Cristian Cadar and Koushik Sen. “Symbolic execution for software testing: three decades later”. In: Communications of the ACM 56.2 (2013), pp. 82–90.
-
-[7]  Sang Kil Cha, Maverick Woo, and David Brumley. “Program-adaptive mutational fuzzing”. In: Security and Privacy (SP), 2015 IEEE Symposium on. 2015, pp. 725–741.
-
-[8]   Sang Kil Cha et al. “Unleashing mayhem on binary code”. In: Security and Privacy (SP), 2012 IEEE Symposium on. 2012, pp. 380–394.
-
-[9]  Brendan Dolan-Gavitt et al. “LAVA: large-scale automated vulnerability addition”. In: Security and Privacy (SP), 2016 IEEE Symposium on. 2016, pp. 110–121.
-
-[10]  William Enck et al. “TaintDroid: an information-flow tracking system for realtime privacy monitoring on smartphones”. In: ACM Transactions on Computer Systems (TOCS) 32.2 (2014), p. 5.
-
-[11]  Fuzzing with AFL is an art. URL: http : / / moyix . blogspot . com / 2016 / 07 / fuzzing - with - afl - is - an -art.html.
-
-[12]  Malay Ganai, Dongyoon Lee, and Aarti Gupta. “DTAM: dynamic taint analysis of multi-threaded programs for relevancy”. In: Proceedings of the ACM SIGSOFT 20th International Symposium on the Foundations of Software Engineering. 2012, p. 46.
-
-[13]  Vijay Ganesh, Tim Leek, and Martin Rinard. “Taintbased directed whitebox fuzzing”. In: Proceedings of the 31st International Conference on Software Engineering. 2009, pp. 474–484.
-
-[14]  gcov - a test coverage program. URL: <https://gcc.gnu>. org/onlinedocs/gcc/Gcov.html#Gcov.
-
-[15]  Patrice Godefroid, Nils Klarlund, and Koushik Sen. “DART: directed automated random testing”. In: ACM SIGPLAN Notices. Vol. 40. 6. 2005, pp. 213– 223.
-
-[16]  Patrice Godefroid, Michael Y Levin, and David A Molnar. “Automated whitebox fuzz testing.” In: NDSS. Vol. 8. 2008, pp. 151–166.
-
-[17]  Istvan Haller et al. “Dowsing for overflows: a guided fuzzer to find buffer boundary violations.” In: USENIX security. 2013, pp. 49–64.
-
-[18]  Chris Lattner and Vikram Adve. “LLVM: a compilation framework for lifelong program analysis and transformation”. In: CGO. San Jose, CA, USA, Mar. 2004, pp. 75–88.
-
-[19]  Yuekang Li et al. “Steelix: program-state based binary fuzzing”. In: Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering. 2017, pp. 627–637.
-
-[20]  Zhiqiang Lin, Xiangyu Zhang, and Dongyan Xu. “Convicting exploitable software vulnerabilities: an efficient input provenance based approach”. In: Dependable Systems and Networks With FTCS and DCC, 2008. DSN 2008. IEEE International Conference on. 2008, pp. 247–256.
-
-[21]  LLVM dataFlowSanitizer. URL: https:// clang.llvm. org/docs/DataFlowSanitizer.html.
-
-[22]  Wes Masri, Andy Podgurski, and David Leon. “Detecting and debugging insecure information flows”. In: Software Reliability Engineering, 2004. ISSRE 2004. 15th International Symposium on. 2004, pp. 198–209.
-
-[23]  Peach fuzzer. URL: <http://www.peachfuzzer.com/>.
-
-[24]  Georgios Portokalidis, Asia Slowinska, and HerbertBos. “Argos: an emulator for fingerprinting zeroday attacks for advertised honeypots with automatic signature generation”. In: ACM SIGOPS Operating Systems Review. Vol. 40. 4. 2006, pp. 15–27.
-
-[25]  Sanjay Rawat et al. “VUzzer: application-aware evolutionary fuzzing”. In: NDSS. Feb. 2017.
-
-[26]  Alexandre Rebert et al. “Optimizing seed selection for fuzzing”. In: 2014.
-
-[27]  Yan Shoshitaishvili et al. “SOK:(State of) the art of war: offensive techniques in binary analysis”. In: Security and Privacy (SP), 2016 IEEE Symposium on. 2016, pp. 138–157.
-
-[28]  Nick Stephens et al. “Driller: augmenting fuzzing through selective symbolic execution”. In: Proceedings of the Network and Distributed System Security Symposium. 2016.
-
-[29]  Mingshen Sun, Tao Wei, and John Lui. “Taintart: a practical multi-level information-flow tracking system for android runtime”. In: Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security. 2016, pp. 331–342.
-
-[30] Technical ”whitepaper” for afl-fuzz. URL: [http://lcamtuf.coredump.cx/afl/technical details.txt](http://lcamtuf.coredump.cx/afl/technical%20details.txt).
-
-[31] Tielei Wang et al. “TaintScope: a checksum-aware directed fuzzing tool for automatic software vulnerability detection”. In: Security and privacy (SP), 2010 IEEE symposium on. 2010, pp. 497–512.
-
-[32] Maverick Woo et al. “Scheduling black-box mutational fuzzing”. In: Proceedings of the 2013 ACMSIGSAC conference on Computer & communications security. 2013, pp. 511–522.
-
-[33]  Xiangyu Zhang, Rajiv Gupta, and Youtao Zhang. “Efficient forward computation of dynamic slices using reduced ordered binary decision diagrams”. In: Proceedings of the 26th International Conference on Software Engineering. 2004, pp. 502–511.

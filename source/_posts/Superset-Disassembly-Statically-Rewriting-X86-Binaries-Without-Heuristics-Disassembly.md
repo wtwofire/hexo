@@ -19,14 +19,14 @@ categories:
 
 
 
-| **论文相关信息：**                                           |
-| ------------------------------------------------------------ |
-| *作者*：Erick Bauman，Zhiqiang Lin，Kevin W. Hamlen 单位：University of Texas at Dallas. |
-| *单位*：University of Texas at Dallas                        |
-| *出处*：NDSS’18                                              |
-| *原文地址*： https://github.com/wtwofire/database/blob/master/papers/2018-Superset%20Disassembly%EF%BC%9AStatically%20Rewriting%20x86%20Binaries%20Without%20Heuristics.pdf |
-| *源码地址*：https://github.com/utds3lab/multiverse           |
-| *发表时间*：2018年                                           |
+| relevant information |                                                              |
+| -------------------- | ------------------------------------------------------------ |
+| *作者*               | Erick Bauman，Zhiqiang Lin，Kevin W. Hamlen 单位：University of Texas at Dallas. |
+| *单位*               | University of Texas at Dallas                                |
+| *出处*               | NDSS’18                                                      |
+| *原文地址*           | https://github.com/wtwofire/database/blob/master/papers/reverse/2018-Superset%20Disassembly%EF%BC%9AStatically%20Rewriting%20x86%20Binaries%20Without%20Heuristics.pdf |
+| *源码地址*           | https://github.com/utds3lab/multiverse                       |
+| *发表时间*           | 2018年                                                       |
 
 # 背景与概述
 
