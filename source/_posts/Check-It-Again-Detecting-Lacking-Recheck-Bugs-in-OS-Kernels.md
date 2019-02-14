@@ -2,7 +2,7 @@
 title: 'Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels'
 date: 2019-02-05 19:05:47
 tags:
-- ACM CCS’18
+- ACM CCS'18
 - 2018年
 - Lacking-Recheck Bugs
 - Kernels
