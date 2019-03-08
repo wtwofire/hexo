@@ -116,6 +116,8 @@ categories:
 > [Peach Fuzzing第二部分 ](http://www.flinkd.org/fuzzing-with-peach-part-2-fixups-2/)- corelan团队Jason Kratzer
 >
 > [自动生成Peach pit文件/fuzzers ](http://doc.netzob.org/en/latest/tutorials/peach.html)- FrédéricGuihéry，Georges Bossert
+>
+> **peach使用介绍**：[1、peach语法介绍](<https://www.kanxue.com/chm.htm?id=12592&pid=node1001008>)、[2、peach语法实战](<https://www.kanxue.com/chm.htm?id=12593&pid=node1001008>)、[3、Peach 实战之 gif 文件格式](<https://www.kanxue.com/chm.htm?id=12594&pid=node1001008>)、[4、Peach Pit 模版调试技巧](<https://www.kanxue.com/chm.htm?id=12595&pid=node1001008>)
 
 ### AFL Fuzzer相关教程
 
