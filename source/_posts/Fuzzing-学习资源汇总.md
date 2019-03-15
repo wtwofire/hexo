@@ -41,7 +41,7 @@ categories:
 >
 > [攻击性计算机安全 – 第6周](http://www.cs.fsu.edu/~redwood/OffensiveComputerSecurity/lectures.html) – 由W. Owen Redwood和Xiuwen Liu教授提供。
 
-**付费**
+### **付费**
 
 > [Offensive Security, ](https://www.offensive-security.com/information-security-training/)[CTP和高级Windows开发（AWE）](https://www.offensive-security.com/information-security-training/)
 >
@@ -101,73 +101,15 @@ categories:
 >
 > [在](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/)[Fuzzing](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/)[大型开源项目之前需要考虑的七件事](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/) – Emily Ratliff。
 
-### 从Fuzzing到利用：
+> 
 
-> [从Fuzzing到0-day](https://blog.techorganic.com/2014/05/14/from-fuzzing-to-0-day/) - Harold Rodriguez(@superkojiman)。
->
-> [从崩溃到利用](https://www.corelan.be/index.php/2013/02/26/root-cause-analysis-memory-corruption-vulnerabilities/) - Corelan团队。
-
-### Peach Fuzzer相关教程：
-
-> [开始使用Peach](http://community.peachfuzzer.com/v2/PeachQuickstart.html)
->
-> [Peach Fuzzing第一部分](http://www.flinkd.org/fuzzing-with-peach-part-1/) – corelan团队Jason Kratzer
->
-> [Peach Fuzzing第二部分 ](http://www.flinkd.org/fuzzing-with-peach-part-2-fixups-2/)- corelan团队Jason Kratzer
->
-> [自动生成Peach pit文件/fuzzers ](http://doc.netzob.org/en/latest/tutorials/peach.html)- FrédéricGuihéry，Georges Bossert
-
-### AFL Fuzzer相关教程
-
-> [Fuzzing工作流程； fuzz工作从开始到结束](https://foxglovesecurity.com/2016/03/15/fuzzing-workflows-a-fuzz-job-from-start-to-finish/) – @BrandonPrry。
->
-> [使用afl的persistent模式给capstone做模糊测试](https://toastedcornflakes.github.io/articles/fuzzing_capstone_with_afl.html) – @toasted_flakes。
->
-> [RAM磁盘以及从AFL Fuzzing中保存你的SSD](http://cipherdyne.org/blog/2014/12/ram-disks-and-saving-your-ssd-from-afl-fuzzing.html)
->
-> [使用American Fuzzy Lop狩猎Bug](https://josephg.com/blog/bug-hunting-with-american-fuzzy-lop/)
->
-> [American Fuzzy Lop在真实案例中的高级使用](https://volatileminds.net/2015/07/01/advanced-afl-usage.html)
->
-> [使用afl-fuzz隔离Python](https://tomforb.es/segfaulting-python-with-afl-fuzz)
->
-> [Fuzzing Perl： American Fuzzy Lops的故事](http://www.geeknik.net/71nvhf1fp)
->
-> [使用AFL-Fuzz Fuzzing，一个练习示例（AFL vs Binutils）](https://www.evilsocket.net/2015/04/30/fuzzing-with-afl-fuzz-a-practical-example-afl-vs-binutils/)
->
-> [Fuzzing的重要性？](https://mgba.io/2016/09/13/fuzzing-emulators/)
->
-> [Heartbleed是如何被找到的](https://blog.hboeck.de/archives/868-How-Heartbleed-couldve-been-found.html)
->
-> [使用American Fuzzy lop Fuzzing文件系统](https://events.static.linuxfound.org/sites/events/files/slides/AFL%20filesystem%20fuzzing%2C%20Vault%202016_0.pdf)
->
-> [使用AFL Fuzzing Perl/XS模块](https://medium.com/@dgryski/fuzzing-perl-xs-modules-with-afl-4bfc2335dd90)
->
-> [如何使用American Fuzzy Lop fuzz一个服务器 ](https://www.fastly.com/blog/how-fuzz-server-american-fuzzy-lop)- Jonathan Foote
->
-> [AFL研讨会Fuzzing – 真正的漏洞带来的一系列挑战](https://github.com/ThalesIgnite/afl-training)
-
-### libFuzzer Fuzzer相关教程
-
-> [libFuzzer教程](https://github.com/google/fuzzer-test-suite/blob/master/tutorial/libFuzzerTutorial.md)
->
-> [libFuzzer研讨会：“C/C++项目的现代fuzzing”](https://github.com/Dor1s/libfuzzer-workshop)
-
-### Spike Fuzzer相关教程
-
-> [使用Spike Fuzzing查找溢出](https://null-byte.wonderhowto.com/how-to/hack-like-pro-build-your-own-exploits-part-3-fuzzing-with-spike-find-overflows-0162789/)
->
-> [使用Spike Fuzzing](https://samsclass.info/127/proj/p18-spike.htm) – samclass.info
-
-### FOE Fuzzer相关教程
-
-> [使用FOE Fuzzing](https://samsclass.info/127/proj/p16-fuzz.htm) – Samclass.info
->
-> SMT/SAT solver教程
->
-> [Z3 – 指南](https://rise4fun.com/z3/tutorial/guide) – Z3入门指南：指南
+---
 
 ## 工具
+
+**1. 以时间和针对的系统的表格**
+
+**2. 采用到的技术与时间的表格**
 
 有助于fuzzing应用的工具
 
@@ -175,105 +117,344 @@ categories:
 
 在云环境中帮助fuzzing测试的Fuzzers。
 
-[Cloudfuzzer](https://github.com/ouspg/cloudfuzzer) – 云fuzzing框架，可以轻松在云环境中运行自动化模糊测试。
+#### [Cloudfuzzer](https://github.com/ouspg/cloudfuzzer) 
 
-### 文件格式Fuzzers
+> 云fuzzing框架，可以轻松在云环境中运行自动化模糊测试。
+
+---
+
+### **文件格式Fuzzers**
 
 可帮助fuzzing文件格式的Fuzzers，如PDF，MP3，SWF等
 
-> [MiniFuzz – Wayback Machine链接](https://web.archive.org/web/20140512203517/http://download.microsoft.com/download/D/6/E/D6EDC908-A1D7-4790-AB0B-66A8B35CD931/MiniFuzzSetup.msi) – Microsoft提供的基本文件格式模糊测试工具。（Microsoft网站上不再提供）。
->
-> [BFF from CERT](https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=507974) - 用于文件格式的基本模糊测试框架。
->
-> [AFL Fuzzer（仅适用于Linux）](http://lcamtuf.coredump.cx/afl/)- American Fuzzy Lop Fuzzer 由Michal Zalewski aka lcamtuf发布
->
-> [Win AFL](https://github.com/ivanfratric/winafl)- Linux下的智能模糊测试神器afl-fuzz的Windows版本
->
-> [Shellphish Fuzzer](https://github.com/shellphish/fuzzer)  – AFL的Python接口，允许注入测试用例和其他功能。
->
-> [TriforceAFL](https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2016/june/project-triforce-run-afl-on-everything/) – AFL的修改版本，它支持源代码不可用的应用程序的模糊测试。
->
-> [Peach Fuzzer](https://sourceforge.net/projects/peachfuzz/) –  一款智能模糊测试工具, 广泛用于发现软件中的漏洞和缺陷,它有两种主要模式,基于生长的模糊测试和基于变异的模糊测试。
->
-> [MozPeach](https://github.com/MozillaSecurity/peach) - 由Mozilla Security提供的peach 2.7。
->
-> [失败观察引擎（FOE）](https://github.com/secfigo/Awesome-Fuzzing/blob/master/www.cert.org/vulnerability-analysis/tools/foe.cfm) – 针对Windows应用程序的基于文件突变的fuzz测试工具。
->
-> [rmadair ](http://rmadair.github.io/fuzzer/)- 基于文件突变的fuzz测试工具，使用PyDBG来监测感兴趣的信号。
->
-> [honggfuzz](https://github.com/google/honggfuzz) - 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
->
-> [zzuf](https://github.com/samhocevar/zzuf)  – 一个透明应用程序输入fuzzer。它通过拦截文件操作并更改程序输入中的随机位来工作。
->
-> [radamsa](https://github.com/aoh/radamsa) – 通用型fuzzer和测试用例生成器。
->
-> [binspector](https://github.com/binspector/binspector) - 二进制格式分析和模糊测试工具
->
-> [grammarinator](https://github.com/renatahodovan/grammarinator) – 基于ANTLR v4语法的文件格式模糊测试工具（ANTLR项目中已有多种语法可用）。
+#### [MiniFuzz – Wayback Machine](https://web.archive.org/web/20140512203517/http://download.microsoft.com/download/D/6/E/D6EDC908-A1D7-4790-AB0B-66A8B35CD931/MiniFuzzSetup.msi)
 
-### 网络协议Fuzzers
+> Microsoft提供的基本文件格式模糊测试工具。（Microsoft网站上不再提供）。
+
+####  [BFF from CERT](https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=507974)
+
+> 用于文件格式的基本模糊测试框架。
+
+####  [AFL Fuzzer（仅适用于Linux）](http://lcamtuf.coredump.cx/afl/)
+
+> Afl-fuzz是一种基于面向安全的模糊测试工具，它采用了一种新型的方式（编译时检测和遗传算法），来自动发掘干净的、有趣的测试案例，即在目标二进制中触发新的内部状态。这基本上改善了模糊代码的功能覆盖。该工具生成的简洁的合成语料库也可以用来传播其它更多的劳动型或资源密集型测试方案。与其他仪器化的模糊工具相比，afl-fuzz是以实用性而被设计的：它具有适度的性能开销，采用了多种高效的模糊战略，和努力最小化的技巧，基本上不需要配置，并且能够无缝处理复杂的、真实世界案例，以及常见的图像分析或文件压缩等。
+>
+>
+> #### **相关教程：**
+>
+> 1. [Fuzzing工作流程； fuzz工作从开始到结束](https://foxglovesecurity.com/2016/03/15/fuzzing-workflows-a-fuzz-job-from-start-to-finish/) – @BrandonPrry。
+> 2. [使用afl的persistent模式给capstone做模糊测试](https://toastedcornflakes.github.io/articles/fuzzing_capstone_with_afl.html) – @toasted_flakes。
+>
+> 3. [RAM磁盘以及从AFL Fuzzing中保存你的SSD](http://cipherdyne.org/blog/2014/12/ram-disks-and-saving-your-ssd-from-afl-fuzzing.html)
+>
+> 4. [使用American Fuzzy Lop狩猎Bug](https://josephg.com/blog/bug-hunting-with-american-fuzzy-lop/)
+>
+> 5. [American Fuzzy Lop在真实案例中的高级使用](https://volatileminds.net/2015/07/01/advanced-afl-usage.html)
+>
+> 6. [使用afl-fuzz隔离Python](https://tomforb.es/segfaulting-python-with-afl-fuzz)
+>
+> 7. [Fuzzing Perl： American Fuzzy Lops的故事](http://www.geeknik.net/71nvhf1fp)
+>
+> 8. [使用AFL-Fuzz Fuzzing，一个练习示例（AFL vs Binutils）](https://www.evilsocket.net/2015/04/30/fuzzing-with-afl-fuzz-a-practical-example-afl-vs-binutils/)
+>
+> 9. [Fuzzing的重要性？](https://mgba.io/2016/09/13/fuzzing-emulators/)
+>
+> 10. [Heartbleed是如何被找到的](https://blog.hboeck.de/archives/868-How-Heartbleed-couldve-been-found.html)
+>
+> 11. [使用American Fuzzy lop Fuzzing文件系统](https://events.static.linuxfound.org/sites/events/files/slides/AFL%20filesystem%20fuzzing%2C%20Vault%202016_0.pdf)
+>
+> 12. [使用AFL Fuzzing Perl/XS模块](https://medium.com/@dgryski/fuzzing-perl-xs-modules-with-afl-4bfc2335dd90)
+>
+> 13. [AFL研讨会Fuzzing – 真正的漏洞带来的一系列挑战](https://github.com/ThalesIgnite/afl-training)
+> 14. [AFL内部实现细节小记](http://rk700.github.io/2017/12/28/afl-internals/)
+> 15. [afl-fuzz技术白皮书](https://blog.csdn.net/gengzhikui1992/article/details/50844857)
+> 16. [如何使用AFL进行一次完整的fuzz过程](https://blog.csdn.net/abcdyzhang/article/details/53487683)
+> 17. [AFL(American Fuzzy Lop)实现细节与文件变异](https://paper.seebug.org/496/)
+> 18. [fuzz实战之libfuzzer](https://www.secpulse.com/archives/71898.html)
+
+####  [Win AFL](https://github.com/ivanfratric/winafl)
+
+>  Linux下的智能模糊测试神器afl-fuzz的Windows版本
+
+####  [Shellphish Fuzzer](https://github.com/shellphish/fuzzer)  
+
+> AFL的Python接口，允许注入测试用例和其他功能。
+
+####  [Peach Fuzzer](https://sourceforge.net/projects/peachfuzz/) 
+
+> 一款智能模糊测试工具, 广泛用于发现软件中的漏洞和缺陷,它有两种主要模式,基于生长的模糊测试和基于变异的模糊测试。
+>
+> #### **相关教程：**
+>
+>  1. [开始使用Peach](http://community.peachfuzzer.com/v2/PeachQuickstart.html)
+> 
+> 2. [Peach Fuzzing第一部分](http://www.flinkd.org/fuzzing-with-peach-part-1/) – corelan团队Jason Kratzer
+> 
+> 3. [Peach Fuzzing第二部分 ](http://www.flinkd.org/fuzzing-with-peach-part-2-fixups-2/)- corelan团队Jason Kratzer
+> 
+> 4. [自动生成Peach pit文件/fuzzers ](http://doc.netzob.org/en/latest/tutorials/peach.html)- FrédéricGuihéry，Georges Bossert
+
+####  [MozPeach](https://github.com/MozillaSecurity/peach)
+
+> 由Mozilla Security提供的peach 2.7。
+
+####  [Failure Observarion Engine（FOE）](https://github.com/secfigo/Awesome-Fuzzing/blob/master/www.cert.org/vulnerability-analysis/tools/foe.cfm)
+
+> 针对Windows应用程序的基于文件突变的fuzz测试工具。
+>
+> #### **相关教程：**
+>
+> 1. [使用FOE Fuzzing](https://samsclass.info/127/proj/p16-fuzz.htm) – Samclass.info
+####  [rmadair ](http://rmadair.github.io/fuzzer/)
+
+> 基于文件突变的fuzz测试工具，使用PyDBG来监测感兴趣的信号。
+
+####  [honggfuzz](https://github.com/google/honggfuzz)
+
+> 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
+
+####  [zzuf](https://github.com/samhocevar/zzuf)  
+
+> 一个透明应用程序输入fuzzer。它通过拦截文件操作并更改程序输入中的随机位来工作。
+
+####  [radamsa](https://github.com/aoh/radamsa) 
+
+> 通用型fuzzer和测试用例生成器。
+
+####  [binspector](https://github.com/binspector/binspector) 
+
+> 二进制格式分析和模糊测试工具
+
+#### [grammarinator](https://github.com/renatahodovan/grammarinator) 
+
+> 基于ANTLR v4语法的文件格式模糊测试工具（ANTLR项目中已有多种语法可用）。
+#### [PerFuzz-2018](<https://github.com/carolemieux/perffuzz>)
+
+> 当程序被提供具有病理行为的输入时，软件中的性能问题可能意外地出现。但是我们怎样才能首先找到这些输入？PerfFuzz可以自动生成这样的输入：给定一个程序和至少一个种子输入，PerfFuzz自动生成输入，在没有任何领域知识的情况下，跨程序位置运行病理行为。PerfFuzz使用多维性能反馈，独立地最大化所有程序位置的执行计数。这使PerfFuzz能够找到各种输入，在程序中运行不同的热点。
+>
+> #### **相关资料：**
+>
+> 1. [论文(ISSTA’18)](<http://www.carolemieux.com/perffuzz-issta2018.pdf>)
+
+#### [FairFuzz-2018](<https://github.com/Ljiee/fairfuzz>)
+
+> AFL扩展，通过定位稀有分支来增加代码覆盖率。FairFuzz在具有高度嵌套结构的程序（数据包分析器，xmllint，使用laf-inte编译的程序等）上具有特殊优势。
+>
+> #### **相关资料：**
+>
+> 1. [论文ASE ’18](<http://www.carolemieux.com/fairfuzz-ase18.pdf>)
+
+#### [Vuzzer-2017](https://github.com/vusec/vuzzer)
+
+> 该工具提出了一种应用程序感知的进化模糊测试策略，它不需要任何有关应用程序或输入格式的先验知识。为了最大化覆盖范围并探索更深入的路径，该工具利用基于静态和动态分析的控制和数据流特征来推断应用程序的基本属性。与应用程序无关的方法相比，这可以更快地生成有趣的输入。我们在VUzzer中实现我们的模糊测试策略并在三个不同的数据集上进行评估：DARPA Grand Challenge二进制文件（CGC），一组实际应用程序（二进制输入解析器）和最近发布的LAVA数据集。
+>
+> #### **相关资料：**
+>
+> 1. [论文NDSS ’17](<http://www.cs.vu.nl//~giuffrida/papers/vuzzer-ndss-2017.pdf>)
+> 2. [工具所用污点分析数据存储结构：EWAHBoolArray](https：//github.com/lemire/EWAHBoolArray)
+> 3. [APLPIN](https://github.com/mothran/aflpin)
+> 4. [DECREE](https://github.com/CyberGrandChallenge/cgc-releasedocumentation/blob/master/walk-throughs/pin-for-decree.md)
+> 5. [AFLFAST](https://github.com/mboehme/aflfast)
+
+#### [sanitizers-2016（google）](https://github.com/Google/sanitizers)
+
+> Google项目，包括AddressSanitizer(检测可寻地址问题), MemorySanitizer(检测未初始化内存的使用), ThreadSanitizer（检测数据争用和死锁问题）, LeakSanitizer（检测内存泄露问题）。
+>
+> 
+
+#### [CERT Basic Fuzzing Framework (BFF) For Linux-2014](https://github.com/CERTCC/certfuzz)
+
+> CERT Basic Fuzzing Framework（BFF）是一种软件测试工具，可以在Linux，Mac OS X和Windows上运行的应用程序中发现缺陷。BFF对消耗文件输入的软件执行突变模糊测试。它们会自动收集导致软件以独特方式崩溃的测试用例，以及调试与崩溃相关的信息。BFF的目标是最大限度地减少软件供应商和安全研究人员有效发现和分析通过模糊测试发现的安全漏洞所需的工作量。
+
+#### [CERT Failure Observation Engine (FOE)For windows-2014](https://vuls.cert.org/confluence/display/tools/Home)
+
+> The cert Failure Observation Engine (FOE) 是一个软件测试工具，它被用于在Windows平台上运行的应用程序中发现漏洞。FOE在消耗文件输入的软件上执行突变模糊测试。（突变性模糊测试是采取形式良好的输入数据并以各种方式破坏它的行为，寻找导致崩溃的情况。）FOE自动收集导致了软件以独特方式使测试用例崩溃，以及利用崩溃来调试信息。FOE的目标是最大限度地减少软件供应商和安全研究人员有效发现和分析通过模糊测试发现的安全漏洞所需的工作量。
+
+------
+
+### **Kernel Fuzzers**
+
+#### [TriforceAFL-2016](https://github.com/nccgroup/TriforceAFL)
+
+> AFL / QEMU 模糊器具有全系统的仿真。这是AFL的修补版本，支持使用QEMU的全系统模糊测试。它所包含的QEMU已经更新，允许在运行x86_64的系统仿真器时进行分支机构跟踪。它也添加了额外的指令来启动AFL的forkserver，进行模糊设置，并标记测试用例的启动和停止。
+>
+> #### **相关资料：**
+>
+> 1. [project](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2016/june/project-triforce-run-afl-on-everything/)
+
+### **浏览器 Fuzzers**
+
+####  [Nightmare-2017](https://github.com/segmentio/nightmare)
+
+> Nightmare是Segment的高级浏览器自动化库。 目标是探索一些模仿用户操作的简单方法（如goto，type和click），使用对每个脚本块感觉同步的API，而不是深层嵌套的回调。它最初设计用于在没有API的站点之间自动执行任务，但最常用于UI测试和网络爬虫。
+>
+> github 上start数量16992多。
+
+#### [IFuzzer-2016](https://github.com/vspandan/IFuzzer)
+
+> 该论文主要是针对脚本引擎的fuzz，只是文中使用了js engine作为目标。核心思想就是：收集大量的测试代码，使用antlr4编写好的语法解析器解析出`非终结符片段`，把输入解析成AST后，在AST上进行变异。变异的方式主要是利用收集的“片段”去替换解析树中相同非终结符，由于采用了遗传算法，通过对每个个体的评估，筛选优秀的个体进行“杂交”产生新的个体进入下一轮fuzz，“杂交”的方法是交换两个个体中相同的非终结符节点，产生两棵新的输。
+>
+> #### **相关资料：**
+>
+> 1. [论文-ESORICS 2016](https://link.springer.com/chapter/10.1007/978-3-319-45744-4_29)
+> 2. [论文笔记](http://muhe.live/2018/06/09/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-IFuzzer-An-Evolutionary-Interpreter-Fuzzer-using-Genetic-Programming/)-@muhe
+
+
+
+------
+
+### **ActiveX Fuzzers**
+
+#### [dranzer](https://github.com/CERTCC/dranzer)(2012)
+
+>Dranzer是一个工具，使用户能够检查模糊测试ActiveX控件的有效技术。拥有第二个版本[dranzer2.0](https://sourceforge.net/projects/enhanceddranzer/files/dranzer/)
+
+---
+
+### **网络协议Fuzzers**
 
 可帮助fuzzing使用基于网络协议（如HTTP, SSH, SMTP等）的应用程序Fuzzers。
 
-> [Peach Fuzzer](https://sourceforge.net/projects/peachfuzz/) –  一款智能模糊测试工具, 广泛用于发现软件中的漏洞和缺陷,它有两种主要模式,基于生长的模糊测试和基于变异的模糊测试。
+####  [Peach Fuzzer](https://sourceforge.net/projects/peachfuzz/)
+
+>  一款智能模糊测试工具, 广泛用于发现软件中的漏洞和缺陷,它有两种主要模式,基于生长的模糊测试和基于变异的模糊测试。
+
+####  [Sulley](https://github.com/OpenRCE/sulley)
+
+> Sulley是一个积极开发的模糊引擎和模糊测试框架，由多个可扩展组件组成。Sulley（IMHO）超过了此前公布的大所属模糊技术、商业和公共领域的能力。框架的目标是不仅是可以简化数据表示，而且也可以简化数据传输和仪表。Sulley是以 Monsters Inc.的生物来命名的，因为，他是模糊的。写在python内的。
+
+#### [Sulley_l2](<http://ernw.de/download/sulley_l2.tar.bz2>)
+
+> 有些人可能记得2008年发布的sulley_l2，它是sulley模糊框架的修改版本，增强了第2层发送功能和一堆（L2）模糊脚本。
+
+####  [boofuzz](https://github.com/jtpereyda/boofuzz)
+
+> Sulley框架的分支和继承。
+
+####  [Spike](http://www.immunitysec.com/downloads/SPIKE2.9.tgz) 
+
+> 一个fuzzer开发框架。
 >
-> [Sulley](https://github.com/OpenRCE/sulley)- 由多个可扩展组件组成的fuzzer开发和模糊测试框架。
+> #### **相关资料：**
 >
-> [boofuzz](https://github.com/jtpereyda/boofuzz)- Sulley框架的分支和继承。
+> 1. [使用Spike Fuzzing查找溢出](https://null-byte.wonderhowto.com/how-to/hack-like-pro-build-your-own-exploits-part-3-fuzzing-with-spike-find-overflows-0162789/)
 >
-> [Spike](http://www.immunitysec.com/downloads/SPIKE2.9.tgz) – 一个fuzzer开发框架。
->
-> Metasploit框架 – 通过辅助模块包含一些fuzzing功能的框架。
->
-> [Nightmare](https://github.com/joxeankoret/nightmare) – 带有Web管理的分布式模糊测试套件，支持使用网络协议进行模糊测试。
+> 2. [使用Spike Fuzzing](https://samsclass.info/127/proj/p18-spike.htm) – samclass.info
+
+####  Metasploit框架 
+
+> 通过辅助模块包含一些fuzzing功能的框架。
+
+#### [Nightmare](https://github.com/joxeankoret/nightmare) 
+
+> 带有Web管理的分布式模糊测试套件，支持使用网络协议进行模糊测试。
+
+#### [Dizzy-2018](https://github.com/ernw/dizzy)
+
+> dizzy是一个模糊的框架，用python编写，能够通过大量输出选项进行状态完全和无状态模糊测试。1.可以发送到L2以及上层（TCP / UDP / SCTP）。2.能够处理奇长度分组字段（无需匹配字节边界，因此即使单个标志或7位长字。3.也可以表示和模糊）。4.非常容易的协议定义语法。5.能够做多包状态的完全模糊，能够使用接收到的目标数据作为响应
+
+
+
+---
 
 ### **杂项**
 
 其他的一些fuzzers，如内核fuzzers，通用型fuzzer等。
 
-> [Choronzon](https://github.com/CENSUS/choronzon) – 一个革命性的基于知识库的模糊测试。
+#### [Choronzon](https://github.com/CENSUS/choronzon) 
+
+> 一个革命性的基于知识库的模糊测试。
+
+#### [QuickFuzz](https://github.com/CIFASIS/QuickFuzz) 
+
+> 是一个语法模糊器，由QuickCheck，模板Haskell和Hackage的特定库生成许多复杂的文件格式，如Jpeg，Png，Svg，Xml，Zip，Tar等。
+
+#### [gramfuzz](https://github.com/d0c-s4vage/gramfuzz) 
+
+> 一种基于语法的模糊器，可以让您定义复杂的语法来为文本和二进制数据格式建模。
+
+#### [KernelFuzzer](https://github.com/mwrlabs/KernelFuzzer) 
+
+> 跨平台的内核Fuzzer框架。
+
+#### [honggfuzz](http://honggfuzz.com/) 
+
+> 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
+
+#### [Hodor Fuzzer](https://github.com/nccgroup/hodor) 
+
+> 另一种通用型fuzzer。
+
+#### [libFuzzer](http://llvm.org/docs/LibFuzzer.html)
+
+> C/C++编写的目标进程内覆盖引导渐进式fuzzing引擎。
 >
-> [QuickFuzz](https://github.com/CIFASIS/QuickFuzz) – 是一个语法模糊器，由QuickCheck，模板Haskell和Hackage的特定库生成许多复杂的文件格式，如Jpeg，Png，Svg，Xml，Zip，Tar等。
+> #### **相关教程：**
 >
-> [gramfuzz](https://github.com/d0c-s4vage/gramfuzz) – 一种基于语法的模糊器，可以让您定义复杂的语法来为文本和二进制数据格式建模。
+> 1. [libFuzzer教程](https://github.com/google/fuzzer-test-suite/blob/master/tutorial/libFuzzerTutorial.md)
+> 2. [libFuzzer研讨会：“C/C++项目的现代fuzzing”](https://github.com/Dor1s/libfuzzer-workshop)
+
+#### [OSS-fuzz](https://github.com/google/oss-fuzz)（google）
+
+> OSS-Fuzz 的目的是利用更新的模糊测试技术与可扩展的分布式执行相结合，提高一般软件基础架构的安全性与稳定性。OSS-Fuzz结合了多种模糊测试技术/漏洞捕捉技术（即原来的libfuzzer）与清洗技术（即原来的AddressSanitizer），并且通过ClusterFuzz为大规模可分布式执行提供了测试环境。
 >
-> [KernelFuzzer](https://github.com/mwrlabs/KernelFuzzer) – 跨平台的内核Fuzzer框架。
+> #### **相关资料：**
 >
-> [honggfuzz](http://honggfuzz.com/) – 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
->
-> [Hodor Fuzzer](https://github.com/nccgroup/hodor) - 另一种通用型fuzzer。
->
-> [libFuzzer](http://llvm.org/docs/LibFuzzer.html)- C/C++编写的目标进程内覆盖引导渐进式fuzzing引擎。
->
-> [syzkaller ](https://github.com/google/syzkaller)- 一款针对Linux内核进行模糊测试的开源工具。
->
-> [ansvif](https://oxagast.github.io/ansvif/) – 用于查找C/C++代码中的漏洞的高级跨平台模糊测试框架。
+> 1. [论文–usenixsecurity17](<https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/serebryany>)
+
+#### [syzkaller ](https://github.com/google/syzkaller)
+
+> 一款针对Linux内核进行模糊测试的开源工具。
+
+#### [ansvif](https://oxagast.github.io/ansvif/) 
+
+> 用于查找C/C++代码中的漏洞的高级跨平台模糊测试框架。
+
+---
+
+### 暂时未确认属于哪种类型的fuzzer
+
+
 
 ### **污点分析**
 
 用户输入如何影响执行
 
-> [PANDA（构建于顶级QEMU系统上的新一代动态分析平台）](https://github.com/moyix/panda)
->
-> [QIRA（QEMU交互式运行时分析器）](http://qira.me/)
->
-> [kfetch-toolkit](https://github.com/j00ru/kfetch-toolkit) – 执行高级记录引用的工具
+#### [PANDA](https://github.com/moyix/panda)
+
+> 构建于顶级QEMU系统的新一代动态分析平台
+
+#### [QIRA](http://qira.me/)
+
+> QEMU交互式运行时分析器
+
+#### [kfetch-toolkit](https://github.com/j00ru/kfetch-toolkit) 
+
+> 执行高级记录引用的工具
+
+---
 
 ### **符号执行SAT和SMT求解器**
 
-> [Z3](https://github.com/Z3Prover/z3) - 属于SMT Solver，用于判定First Order Logic公式的可满足性。
+#### [Z3](https://github.com/Z3Prover/z3) 
+
+> 属于SMT Solver，用于判定First Order Logic公式的可满足性。
 >
-> [SMT-LIB](http://smtlib.cs.uiowa.edu/) - 旨在促进SMT研究与开发的国际计划。
+> #### **相关教程：**
+>
+> 1. Z3 – 指南](https://rise4fun.com/z3/tutorial/guide) – Z3入门指南：指南
 
-## **参考**
+#### [SMT-LIB](http://smtlib.cs.uiowa.edu/)
 
-点击链接了解更多信息：<https://www.ee.oulu.fi/research/ouspg/Fuzzers>
+> 旨在促进SMT研究与开发的国际计划。
 
-### **基本工具**
+
+
+### **辅助工具**
 
 针对exploit开发人员和逆向工程师的工具。
 
-### Debuggers
+### 调试工具
 
 > [Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) – windows平台下强大的用户态和内核态调试工具。
 >
@@ -293,7 +474,7 @@ categories:
 >
 > [Radare2](http://www.radare.org/r/) – 用于逆向工程和二进制文件分析的框架。
 
-### **反编译以及更多**
+### **反编译**
 
 > [IDA Pro](https://www.hex-rays.com/products/ida/index.shtml)- 最好的反编译软件
 >
