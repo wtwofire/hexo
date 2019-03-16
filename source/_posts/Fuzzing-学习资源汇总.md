@@ -122,17 +122,13 @@ categories:
 
 ---
 
-## **文件格式Fuzzers**
+## **文件系统 Fuzzers**
 
 可帮助fuzzing文件格式的Fuzzers，如PDF，MP3，SWF等
 
 ### [MiniFuzz – Wayback Machine](https://web.archive.org/web/20140512203517/http://download.microsoft.com/download/D/6/E/D6EDC908-A1D7-4790-AB0B-66A8B35CD931/MiniFuzzSetup.msi)
 
 > Microsoft提供的基本文件格式模糊测试工具。（Microsoft网站上不再提供）。
-
-###  [BFF from CERT](https://resources.sei.cmu.edu/library/asset-view.cfm?assetID=507974)
-
-> 用于文件格式的基本模糊测试框架。
 
 ###  [AFL Fuzzer（仅适用于Linux）](http://lcamtuf.coredump.cx/afl/)
 
@@ -194,28 +190,40 @@ categories:
 
 > 由Mozilla Security提供的peach 2.7。
 
-###  [Failure Observarion Engine（FOE）](https://github.com/secfigo/Awesome-Fuzzing/blob/master/www.cert.org/vulnerability-analysis/tools/foe.cfm)
-
-> 针对Windows应用程序的基于文件突变的fuzz测试工具。
->
-> **相关教程：**
->
-> 1. [使用FOE Fuzzing](https://samsclass.info/127/proj/p16-fuzz.htm) – Samclass.info
-####  [rmadair ](http://rmadair.github.io/fuzzer/)
+###  [rmadair ](http://rmadair.github.io/fuzzer/)
 
 > 基于文件突变的fuzz测试工具，使用PyDBG来监测感兴趣的信号。
 
-###  [honggfuzz](https://github.com/google/honggfuzz)
+###  [honggfuzz-2015(google)](https://github.com/google/honggfuzz)
 
 > 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
+>
+> **相关资料：**
+>
+> 1. [riusksk分析](https://bbs.pediy.com/thread-247954.htm)
+> 2. 
 
-###  [zzuf](https://github.com/samhocevar/zzuf)
+###  [zzuf-2007](https://github.com/samhocevar/zzuf)
 
-> 一个透明应用程序输入fuzzer。它通过拦截文件操作并更改程序输入中的随机位来工作。
+> zzuf是一个透明的应用程序输入模糊器。其目的是通过破坏用户提供的数据来查找应用程序中的错误（这些数据通常来自Internet上不受信任的来源）。它的工作原理是拦截文件和网络操作，并改变程序输入中的随机位。zzuf的行为是确定性的，可以更容易地重现错误。其主要使用领域是：
+>
+> - **质量保证**：使用zzuf测试现有软件，或将其集成到您自己软件的测试套件中
+> - **安全性**：通常，分段错误或内存损坏问题意味着潜在的安全漏洞，zzuf有助于暴露其中一些漏洞
+> - **代码覆盖率分析**：使用zzuf最大化代码覆盖率
+>
+> zzuf的主要目标是媒体播放器，图像浏览器和Web浏览器，因为它们处理的数据本质上是不安全的，但它也成功地用于查找系统实用程序（如objdump）中的错误。
+>
+> **相关资料：**
+>
+> 1. [使用手册](http://caca.zoy.org/wiki/zzuf)
 
-###  [radamsa](https://github.com/aoh/radamsa)
+###  [radamsa-2012](https://gitlab.com/akihe/radamsa)
 
-> 通用型fuzzer和测试用例生成器。
+> 它通常用于测试程序如何能够承受格式错误和潜在的恶意输入。它的工作原理是读取有效数据的样本文件，并从中生成有意义的不同输出。radamsa的主要卖点是它已经在程序中找到了大量的错误，这些错误实际上很重要，它易于编写脚本，并且易于启动和运行。
+>
+> **相关资料：**
+>
+> 1. [相应PPT](http://www.cs.tut.fi/tapahtumat/testaus12/kalvot/Wieser_20120606radamsa-coverage.pdf)
 
 ###  [binspector](https://github.com/binspector/binspector)
 
@@ -224,7 +232,7 @@ categories:
 ### [grammarinator](https://github.com/renatahodovan/grammarinator)
 
 > 基于ANTLR v4语法的文件格式模糊测试工具（ANTLR项目中已有多种语法可用）。
-### [PerFuzz-2018](<https://github.com/carolemieux/perffuzz>)
+### [PerfFuzz-2018](<https://github.com/carolemieux/perffuzz>)
 
 > 当程序被提供具有病理行为的输入时，软件中的性能问题可能意外地出现。但是我们怎样才能首先找到这些输入？PerfFuzz可以自动生成这样的输入：给定一个程序和至少一个种子输入，PerfFuzz自动生成输入，在没有任何领域知识的情况下，跨程序位置运行病理行为。PerfFuzz使用多维性能反馈，独立地最大化所有程序位置的执行计数。这使PerfFuzz能够找到各种输入，在程序中运行不同的热点。
 >
@@ -260,11 +268,109 @@ categories:
 
 ### [CERT Basic Fuzzing Framework (BFF) For Linux-2014](https://github.com/CERTCC/certfuzz)
 
-> CERT Basic Fuzzing Framework（BFF）是一种软件测试工具，可以在Linux，Mac OS X和Windows上运行的应用程序中发现缺陷。BFF对消耗文件输入的软件执行突变模糊测试。它们会自动收集导致软件以独特方式崩溃的测试用例，以及调试与崩溃相关的信息。BFF的目标是最大限度地减少软件供应商和安全研究人员有效发现和分析通过模糊测试发现的安全漏洞所需的工作量。
+> CERT Basic Fuzzing Framework（BFF）是一种软件测试工具，可以在Linux，Mac OS X和Windows上运行的应用程序中发现缺陷。BFF对消耗文件输入的软件执行突变模糊测试。它们会自动收集导致软件以独特方式崩溃的测试用例，以及调试与崩溃相关的信息。BFF的目标是最大限度地减少软件供应商和安全研究人员有效发现和分析通过模糊测试发现的安全漏洞所需的工作量。基于zzuf框架实现
 
 ### [CERT Failure Observation Engine (FOE)For windows-2014](https://vuls.cert.org/confluence/display/tools/Home)
 
 > The cert Failure Observation Engine (FOE) 是一个软件测试工具，它被用于在Windows平台上运行的应用程序中发现漏洞。FOE在消耗文件输入的软件上执行突变模糊测试。（突变性模糊测试是采取形式良好的输入数据并以各种方式破坏它的行为，寻找导致崩溃的情况。）FOE自动收集导致了软件以独特方式使测试用例崩溃，以及利用崩溃来调试信息。FOE的目标是最大限度地减少软件供应商和安全研究人员有效发现和分析通过模糊测试发现的安全漏洞所需的工作量。
+>
+> **相关资料：**
+>
+> 1. [使用FOE Fuzzing](https://samsclass.info/127/proj/p16-fuzz.htm) – Samclass.info
+
+### [KEMUfuzzer-2010](<https://github.com/jrmuizel/kemufuzzer>)
+
+> KEmuFuzzer是一个基于仿真或直接本地执行测试系统虚拟机的工具。 目前KEmuFuzzer支持：BHOCS，QEMU，VMware和virtualbox。
+>
+> **相关资料：**
+>
+> 1. [相关PPT](https://pdfs.semanticscholar.org/e48e/fb9187655ab1393f497f9330e8340b09e643.pdf) 
+
+### [Pathgrind-2013](<https://github.com/jrmuizel/kemufuzzer>)
+
+> Pathgrind使用基于路径的动态分析来fuzz linux / unix二进制。 它是基于valgrind被写在python内的。
+>
+> **相关资料：**
+>
+> 1. [相关PPT](https://pdfs.semanticscholar.org/e48e/fb9187655ab1393f497f9330e8340b09e643.pdf) 
+
+### [QuickFuzz-2017](https://github.com/CIFASIS/QuickFuzz)
+
+> QuickFuzz是一个用Haskell编写的工具，用于测试第三方软件上常见文件格式的意外输入，利用现成的，众所周知的模糊器。与其他世代模糊器不同，QuickFuzz不需要为相关文件格式编写规范，因为它依赖于Haskell代码库中可用的现有文件格式处理库。QuickFuzz是开源的（GPL3），它可以使用其他错误检测工具，如[zzuf](http://caca.zoy.org/wiki/zzuf)，[radamsa](https://github.com/aoh/radamsa)，[honggfuzz](http://google.github.io/honggfuzz/)和[valgrind](http://valgrind.org/)。
+>
+> **相关资料：**
+>
+> 1. [主页介绍](http://quickfuzz.cifasis-conicet.gov.ar/) 
+> 2. [论文:《QuickFuzz testing for fun and profit》](https://dl.acm.org/citation.cfm?id=3163968)
+> 3. [另外一篇相同名称论文：《QuickFuzz: An Automatic Random
+>   Fuzzer for Common File Formats》](https://people.seas.harvard.edu/~pbuiras/publications/QFHaskell2016.pdf)
+
+### [SymFuzz-2015](https://github.com/maurer/symfuzz)
+
+> 提出了一个算法的设计，以最大化数量的bug为黑盒子突变性的模糊给定一个程序和种子的输入。主要的直观性的是利用给定程序 - 种子对的执行轨迹上的白盒符号进行分析，来检测输入的BIT位置之间的依赖性，然后使用这种依赖关系来为该程序种子对计算概率上最佳的突变比率。
+>
+> **相关资料：**
+>
+> 1. [论文：《Program-Adaptive Mutational Fuzzing》](https://ieeexplore.ieee.org/document/7163057?arnumber=7163057) 
+
+### [Choronzon-2015](https://github.com/CENSUS/choronzon)
+
+>Choronzon是一个进化型的模糊工具。它试图模仿进化过程，以保持产生更好的结果。 为了实现这一点，它具有评估系统的能力，用以分类哪些模糊文件是有趣的，哪些应该被丢弃。
+>此外，Choronzon是一个基于知识的模糊器。 它使用用户定义的信息来读取和写入目标文件格式的文件。要熟悉Choronzon的术语，您应该考虑每个文件由染色体表示。用户应该描述所考虑的文件格式的基本结构， 优选文件格式的高级概述，而不是描述它的每个细节和方面。那些用户定义的基本结构中的每一个都被认为是基因， 每个染色体包含一个基因树，并且它能够从中构建相应的文件。
+>
+>**相关资料：**
+>
+>1. [演讲视频](https://www.youtube.com/watch?v=WafsYOCl8hQ) 
+>
+>2. [演讲PPT》](https://census-labs.com/media/choronzon-zeronights-2015.pdf)
+>
+>   
+
+### [Hodor-2016](https://github.com/nccgroup/Hodor)
+
+> 它可以配置为使用已知良好的输入和分隔符来fuzz特定的位置。在一个完全愚蠢的模糊器和一些更聪明的东西之间，与实现一个合适的智能模糊器相比，它的努力要少得多。
+
+
+
+---
+
+## **机器学习 Fuzzers**
+
+### [Neural Fuzzer-2016](https://github.com/CIFASIS/neural-fuzzer)
+
+> Neural-Fuzzer是一款实验性模糊器，旨在使用最先进的机器学习来学习一组初始文件。它分两个阶段进行：**培训**和**生成**。
+>
+> - 在训练模式中：它使用[长短期记忆（LSTM）](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)来学习字节序列的结构。
+> - 在生成模式下：它将自动生成损坏或意外的文件，它将尝试使给定的程序崩溃。
+>
+> Neural-Fuzzer是开源的（GPL3），由[keras](http://keras.io/)驱动，类似于[rnn-char](https://github.com/karpathy/char-rnn)和序列预测中的其他技术。
+
+
+
+### [Pulsar-2015-协议](https://github.com/hgascon/pulsar)
+
+> Pulsar是一种具有自动协议学习和仿真功能的网络模糊器。该工具允许通过机器学习技术建模协议，例如聚类和隐马尔可夫模型。这些模型可用于模拟Pulsar与真实客户端或服务器之间的通信，这要归功于语义正确的消息，这些消息与一系列模糊测试原语相结合，允许在其协议状态的更深层状态下测试未知协议的实现是否存在错误机。
+>
+> **相关资料：**
+>
+> 1. [论文：《PULSAR: Stateful Black-Box Fuzzing of
+>    Proprietary Network Protocols》](https://ieeexplore.ieee.org/document/7163057?arnumber=7163057) 
+
+### [RamFuzz-2017](https://github.com/dekimir/RamFuzz)
+
+> RamFuzz是单元测试中各个方法参数的模糊器。单元测试可以使用RamFuzz为被测方法生成随机参数值。记录这些值，并且可以重播日志以重复完全相同的测试方案。但随机参数值不仅限于基本类型：RamFuzz还可以从用户代码中自动生成任何类的随机对象。这允许用户模糊接受类参数的方法。例如，如果一个方法采用a `int`，a `struct S`和a `class C`作为参数，RamFuzz可以随机生成它们！测试作者不必担心创建`S`和`C`对象的技术性; RamFuzz会自动完成。
+>
+> 为此，RamFuzz包含一个代码生成器，它读取C ++源代码并从中生成一些测试代码。此测试代码通过随机选择的构造函数创建类实例，然后继续使用随机生成的参数调用实例方法的随机序列。结果是一个随机类对象，可以将该类作为参数提供给任何方法。
+>
+> 当然，这会产生表面上非常有用的表面测试 - 大多数方法不会采用完全随机的参数，而是以某种方式约束它们。目的是可以从许多RamFuzz测试运行的日志中自动推断出这些约束。由于测试是随机的，因此每次运行都是一种不同的方案，可以增加测试代码的覆盖范围。如果随机性质良好，则长时间反复运行测试将涵盖各种可能的参数值，可能包括一些完全有效的测试。然后可以使用这些日志来训练AI以识别哪些参数值有效。或者，可以使用模糊测试策略来引导参数值生成向有效测试的演变。
+>
+> RamFuzz提供了一些Python工具，可以轻松地在其生成的日志上训练AI - 请参阅[`ai`](https://github.com/dekimir/RamFuzz/blob/master/ai)目录和[概述文件](https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md)。例如，可以训练神经网络以基于其RamFuzz日志准确地预测测试运行的结果。这是可能的，因为RamFuzz设法提供足够多的测试运行，以便识别成功和不成功的内容。
+>
+> 但请注意，RamFuzz不会自动生成方法调用结果的测试断言。将创建其他项目以自动完成，但RamFuzz将通过方便地处理参数模糊测试和日志记录来实现。
+>
+> RamFuzz是在Apache 2.0许可下提供的。它目前仅支持输入C ++（请参阅下面的“已知限制”），它需要C ++ 11支持来编译其输出代码和运行时
+>
+> [论文：《RamFuzz: A Framework for C++ Test Generation via Deep Learning》](https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md#ramfuzz-a-framework-for-c-test-generation-via-deep-learning) 
 
 ------
 
@@ -274,9 +380,42 @@ categories:
 
 > AFL / QEMU 模糊器具有全系统的仿真。这是AFL的修补版本，支持使用QEMU的全系统模糊测试。它所包含的QEMU已经更新，允许在运行x86_64的系统仿真器时进行分支机构跟踪。它也添加了额外的指令来启动AFL的forkserver，进行模糊设置，并标记测试用例的启动和停止。
 >
->  **相关资料：**
+> **相关资料：**
 >
 > 1. [project](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2016/june/project-triforce-run-afl-on-everything/)
+
+### [KernelFuzzer-2016](https://github.com/mwrlabs/KernelFuzzer)
+
+> 跨平台内核Fuzzer框架
+>
+> **相关资料：**
+>
+> 1. [主页文档介绍](https://labs.mwrinfosecurity.com/publications/platform-agnostic-kernel-fuzzing/)
+> 2. [视频文档讲解](https://www.youtube.com/watch?v=M8ThCIfVXow)
+
+
+
+### [syzkaller-2017(google)](https://github.com/google/syzkaller)
+
+> syzkaller是一个无监督的覆盖引导内核模糊器。目前还在持续更新，readme上列出了其它相关的文档资料。
+>
+> **相关资料：**
+>
+> 1. [基于syzkaller的研究工作](https://github.com/google/syzkaller/blob/master/docs/research.md)
+> 2. 来自HardenedLinux项目：
+>    - [使用syzkaller和qemu的内核质量保证](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/harbian_qa/fuzz_testing/syzkaller_general.md)（关于如何使用qemu设置syzkaller的教程）
+>    - [Syzkaller崩溃DEMO](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/harbian_qa/fuzz_testing/syzkaller_crash_demo.md)（关于如何使用新的系统调用扩展syzkaller的教程）
+>    - [使用syzkaller的内核调试工具](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/harbian_qa/fuzz_testing/syz_debug.md)（由syz-manager和gdb创建的调试qemu VM）
+>    - [一些syzkaller内部的解释](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/blob/master/docs/harbian_qa/fuzz_testing/syz_analysis.md)
+>    - [模糊ceph文件系统的一个例子](https://github.com/hardenedlinux/Debian-GNU-Linux-Profiles/tree/master/docs/harbian_qa/fuzz_testing/syz_for_ceph)
+> 3. [使用syzkaller进行覆盖引导内核模糊测试](https://lwn.net/Articles/677764/)（作者David Drysdale）
+> 4. [ubsan，kasan，syzkaller und co](http://www.strlen.de/talks/debug-w-syzkaller.pdf)（[视频](https://www.youtube.com/watch?v=Acp0A9X1254)）（作者：Florian Westphal）
+> 5. [调试syzkaller发现的内核崩溃](http://vegardno.blogspot.de/2016/08/sync-debug.html)（作者：Quentin Casasnovas）
+> 6. [Linux管道工2016年谈话幻灯片](https://docs.google.com/presentation/d/1iAuTvzt_xvDzS2misXwlYko_VDvpvCmDevMOq2rXIcA/edit?usp=sharing)
+> 7. [syzkaller：下一代内核fuzzer](https://www.slideshare.net/DmitryVyukov/syzkaller-the-next-gen-kernel-fuzzer)（操作基础，如何运行syzkaller以及如何将其扩展到模糊新驱动程序的教程）
+> 8. [syzbot和一千个内核bug的故事](https://events.linuxfoundation.org/wp-content/uploads/2017/11/Syzbot-and-the-Tale-of-Thousand-Kernel-Bugs-Dmitry-Vyukov-Google.pdf) [ [视频](https://www.youtube.com/watch?v=qrBVXxZDVQY) ]
+
+
 
 ## **浏览器 Fuzzers**
 
@@ -295,7 +434,50 @@ categories:
 > 1. [论文-ESORICS 2016](https://link.springer.com/chapter/10.1007/978-3-319-45744-4_29)
 > 2. [论文笔记](http://muhe.live/2018/06/09/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-IFuzzer-An-Evolutionary-Interpreter-Fuzzer-using-Genetic-Programming/)-@muhe
 
+### [Wadi-fuzzer](https://github.com/sensepost/wadi)
 
+> Wadi是基于web浏览器语法的模糊器。 这个语法用于描述浏览器应该如何处理Web内容，Wadi转向并使用语法来打破浏览器。
+> Wadi是一个Fuzzing模块，用于NodeFuzz fuzzing Harness并利用AddressSanitizer（ASan）在Linux和Mac OSX上进行测试。
+>
+> **相关资料：**
+>
+> 1. [官方文档介绍](https://sensepost.com/blog/2015/wadi-fuzzer/)
+>
+
+### [NodeFuzz-2012](https://github.com/attekett/NodeFuzz)
+
+> NodeFuzz是用于Web浏览器和类似浏览器的应用程序的模糊控制器。NodeFuzz背后有两个主要思想。首先是创建一种简单快速的模糊不同浏览器的方法。第二个是使用新的测试用例生成器和客户端仪器轻松扩展一个线束，而无需对内核进行修改。
+>
+> **相关资料：**
+>
+> 1. [介绍](https://code.google.com/archive/p/ouspg/wikis/NodeFuzz.wiki)
+
+### [Grinder-2011](https://github.com/attekett/NodeFuzz)
+
+> Grinder是一个自动化Web浏览器模糊测试和大量崩溃管理的系统。Grinder节点提供了一种fuzz浏览器的自动方式，并生成有用的崩溃信息（例如带有符号信息的调用堆栈以及可用于在稍后阶段生成可重现的测试用例的日志信息）。Grinder Server提供了一个整理崩溃的中心位置，并通过Web界面允许多个用户登录和管理所有Grinder节点生成的所有崩溃。
+>
+> **相关资料：**
+>
+> 1. [介绍](https://code.google.com/archive/p/ouspg/wikis/NodeFuzz.wiki)
+
+### [Kitty-2016](https://github.com/Cisco-sas/kitty)
+
+> Kitty是一个用python编写的开源模块化和可扩展的模糊测试框架，受OpenRCE的[Sulley](https://github.com/OpenRCE/sulley) 和Michael Eddington（以及现在的Deja Vu Security的）[Peach Fuzzer的](http://community.peachfuzzer.com/)启发。(**还在更新**)
+>
+> 当我们开始编写Kitty时，我们的目标是帮助我们模糊不寻常的目标 - 意味着通过非TCP / IP通信通道的专有和深奥的协议 - 无需每次都从头开始编写所有内容。一个通用的抽象框架，包括我们可以想到的每个模糊过程的共同功能，并允许用户轻松扩展并使用它来测试他们的特定目标。
+>
+> [Katnip](https://github.com/cisco-sas/katnip)是[Kitty](https://github.com/cisco-sas/kitty)的实现和扩展的存储库。虽然Kitty定义了基类和语法，但它不包含任何特定的实现。因此，例如，为了通过TCP发送有效负载，您需要创建一些扩展`ServerTarget` 并能够通过TCP发送数据的类，依此类推。Katnip包含这样的课程。目前，Katnip包含以下各种实现：
+>
+> - 服务器和客户端的控制器
+> - 显示器
+> - 目标
+> - 积木
+> - 模板
+>
+> **相关资料：**
+>
+> 1. [Kitty介绍](https://kitty.readthedocs.io/en/latest/)
+> 2. [Katnip介绍](https://katnip.readthedocs.io/en/latest/)
 
 ------
 
@@ -304,6 +486,25 @@ categories:
 ### [dranzer](https://github.com/CERTCC/dranzer)(2012)
 
 >Dranzer是一个工具，使用户能够检查模糊测试ActiveX控件的有效技术。拥有第二个版本[dranzer2.0](https://sourceforge.net/projects/enhanceddranzer/files/dranzer/)
+
+---
+
+## **Library Fuzeers**
+
+### [libFuzzer](http://llvm.org/docs/LibFuzzer.html)
+
+> C/C++编写的目标进程内覆盖引导渐进式fuzzing引擎。基于LibFuzzer实现的两个fuzzer：clang-format-fuzzer和clang-fuzzer。Clang格式大多是一个词法分析器，所以给它随机字节格式是会完美运行的，但也伴随着超过20个错误。然而Clang不仅仅是一个词法分析器，给它随机字节时几乎没有划伤其表面，所以除了测试随机字节，我们还在令牌感知模式中模糊了Clang。两种模式中都发现了错误; 其中一些以前被AFL检测到，另一些则不是：我们使用AddressSanitizer运行这个模糊器，结果发现一些错误在没有它的情况下不容易被发现。
+>
+>
+> **相关资料：**
+>
+> 1. [libFuzzer教程](https://github.com/google/fuzzer-test-suite/blob/master/tutorial/libFuzzerTutorial.md)
+> 2. [LLVM主页官方文档介绍](http://llvm.org/docs/LibFuzzer.html)
+> 3. [libFuzzer研讨会：“C/C++项目的现代fuzzing](https://github.com/Dor1s/libfuzzer-workshop)
+> 4. [clang-format-fuzzer](http://llvm.org/viewvc/llvm-project/cfe/trunk/tools/clang-format/)
+> 5. [clang-fuzzer](http://llvm.org/viewvc/llvm-project/cfe/trunk/tools/clang-fuzzer/)
+
+
 
 ---
 
@@ -327,6 +528,14 @@ categories:
 
 > Sulley框架的分支和继承。
 
+
+
+
+
+###  [backfuzz-2012](https://github.com/localh0t/backfuzz)
+
+> 一个用python写成的有着不同协议（FTP，HTTP，IMAP等）的模糊工具,
+
 ###  [Spike](http://www.immunitysec.com/downloads/SPIKE2.9.tgz)
 
 > 一个fuzzer开发框架。
@@ -349,7 +558,44 @@ categories:
 
 > dizzy是一个模糊的框架，用python编写，能够通过大量输出选项进行状态完全和无状态模糊测试。1.可以发送到L2以及上层（TCP / UDP / SCTP）。2.能够处理奇长度分组字段（无需匹配字节边界，因此即使单个标志或7位长字。3.也可以表示和模糊）。4.非常容易的协议定义语法。5.能够做多包状态的完全模糊，能够使用接收到的目标数据作为响应
 
+----
 
+## **分布式 Fuzzers**
+
+### [FuzzFlow-2016](https://github.com/talos-vulndev/FuzzFlow)
+
+> Fuzzflow是来自cisco talos的一个分布式的模糊管理框架，它提供虚拟机管理，模糊作业配、可插拔变异引擎、前/后变形脚本、崩溃收集和可插拔崩溃分析。FuzzFlow是一种基于concolic执行的自动化测试生成工具。FuzzFlow利用动态二进制检测来修改x86 ELF二进制文件，以便为污点分析启用数据流跟踪。通过分析附近约束的数据流路径并通过转换二进制来进行符号执行来解决新输入，从而生成新测试。
+>
+> ### **相关资料：**
+>
+> 1. [主页](https://www.talosintelligence.com/moflow)
+
+
+
+### [fuzzinator-2018](https://github.com/renatahodovan/fuzzinator)
+
+> *Fuzzinator*是一个模糊测试框架，可帮助您自动执行模糊会话期间通常需要的任务：
+>
+> - 运行您最喜欢的测试生成器并将测试用例提供给被测系统，
+> - 抓住并保存独特的问题，
+> - 减少失败的测试用例，
+> - 简化bug跟踪器中问题的报告（例如，Bugzilla或GitHub），
+> - 如果需要，定期更新SUT
+> - 安排多个SUT和发电机，而不会使工作站过载。
+>
+> ### **相关资料：**
+>
+> 1. [PPT](https://www.slideshare.net/hodovanrenata/fuzzinator-in-bug-we-trust)
+> 2. [教程](https://github.com/renatahodovan/fuzzinator/blob/master/docs/tutorial.rst)
+> 3. [论文《Fuzzinator: An Open-Source Modular Random Testing Framework》](https://ieeexplore.ieee.org/document/8367070)
+
+### [OSS-fuzz-2017](https://github.com/google/oss-fuzz)（google）
+
+> OSS-Fuzz 的目的是利用更新的模糊测试技术与可扩展的分布式执行相结合，提高一般软件基础架构的安全性与稳定性。OSS-Fuzz结合了多种模糊测试技术/漏洞捕捉技术（即原来的libfuzzer）与清洗技术（即原来的AddressSanitizer），并且通过ClusterFuzz为大规模可分布式执行提供了测试环境。
+>
+> **相关资料：**
+>
+> 1. [论文–usenixsecurity17](<https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/serebryany>)
 
 ---
 
@@ -357,46 +603,15 @@ categories:
 
 其他的一些fuzzers，如内核fuzzers，通用型fuzzer等。
 
-### [Choronzon](https://github.com/CENSUS/choronzon)
-
-> 一个革命性的基于知识库的模糊测试。
-
-### [QuickFuzz](https://github.com/CIFASIS/QuickFuzz)
-
-> 是一个语法模糊器，由QuickCheck，模板Haskell和Hackage的特定库生成许多复杂的文件格式，如Jpeg，Png，Svg，Xml，Zip，Tar等。
+> 
 
 ### [gramfuzz](https://github.com/d0c-s4vage/gramfuzz)
 
 > 一种基于语法的模糊器，可以让您定义复杂的语法来为文本和二进制数据格式建模。
 
-### [KernelFuzzer](https://github.com/mwrlabs/KernelFuzzer)
-
-> 跨平台的内核Fuzzer框架。
-
-### [honggfuzz](http://honggfuzz.com/)
-
-> 一个易于使用的fuzzer以及有趣的分析选项。支持基于代码覆盖的feedback-driven fuzzing。同时支持GNU/Linux，FreeBSD，Mac OSX和Android系统。
-
 ### [Hodor Fuzzer](https://github.com/nccgroup/hodor)
 
 > 另一种通用型fuzzer。
-
-### [libFuzzer](http://llvm.org/docs/LibFuzzer.html)
-
-> C/C++编写的目标进程内覆盖引导渐进式fuzzing引擎。
->
->  **相关资料：**
->
-> 1. [libFuzzer教程](https://github.com/google/fuzzer-test-suite/blob/master/tutorial/libFuzzerTutorial.md)
-> 2. [libFuzzer研讨会：“C/C++项目的现代fuzzing”](https://github.com/Dor1s/libfuzzer-workshop)
-
-### [OSS-fuzz](https://github.com/google/oss-fuzz)（google）
-
-> OSS-Fuzz 的目的是利用更新的模糊测试技术与可扩展的分布式执行相结合，提高一般软件基础架构的安全性与稳定性。OSS-Fuzz结合了多种模糊测试技术/漏洞捕捉技术（即原来的libfuzzer）与清洗技术（即原来的AddressSanitizer），并且通过ClusterFuzz为大规模可分布式执行提供了测试环境。
->
-> **相关资料：**
->
-> 1. [论文–usenixsecurity17](<https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/serebryany>)
 
 ### [syzkaller ](https://github.com/google/syzkaller)
 
