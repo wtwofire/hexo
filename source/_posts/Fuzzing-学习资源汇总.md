@@ -605,29 +605,28 @@ AFL-go-2017
 >
 > **相关资料：**
 >
-> 1. [论文：《kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels》-(Usenix17](<https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-schumilo.pdf>) 
+> 1. [论文：《kAFL: Hardware-Assisted Feedback Fuzzing for OS Kernels》-Usenix17](<https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-schumilo.pdf>) 
 > 2. [源码地址](<https://github.com/RUB-SysSec/kAFL>)
 
-
-
-### [TriforceAFL-2016](https://github.com/nccgroup/TriforceAFL)
+### TriforceAFL-2016]
 
 > AFL / QEMU 模糊器具有全系统的仿真。这是AFL的修补版本，支持使用QEMU的全系统模糊测试。它所包含的QEMU已经更新，允许在运行x86_64的系统仿真器时进行分支机构跟踪。它也添加了额外的指令来启动AFL的forkserver，进行模糊设置，并标记测试用例的启动和停止。
 >
 > **相关资料：**
 >
 > 1. [project](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2016/june/project-triforce-run-afl-on-everything/)
+> 2. [源代码](https://github.com/nccgroup/TriforceAFL)
 
-### [KernelFuzzer-2016](https://github.com/mwrlabs/KernelFuzzer)
+### KernelFuzzer-2016
 
 > 跨平台内核Fuzzer框架
 >
 > **相关资料：**
 >
 > 1. [主页文档介绍](https://labs.mwrinfosecurity.com/publications/platform-agnostic-kernel-fuzzing/)
-> 2. [视频文档讲解](https://www.youtube.com/watch?v=M8ThCIfVXow)
-
-
+> 2. [演讲PPT](<https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-Platform-Agnostic-Kernel-Fuzzing-FINAL.pdf>)
+> 3. [视频文档讲解](https://www.youtube.com/watch?v=M8ThCIfVXow)
+> 4. [源代码](https://github.com/mwrlabs/KernelFuzzer)
 
 ## **浏览器 Fuzzers**
 
