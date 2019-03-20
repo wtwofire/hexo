@@ -29,9 +29,7 @@ categories:
 >
 > [《IDA Pro – IDA Pro Book：全球最受欢迎的反编译器非官方指南》](https://www.amazon.com/IDA-Pro-Book-2nd-ebook/dp/B005EI84TM)
 
-# fuzzing课程/培训视频：
-
-## **免费**
+# fuzzing 学习视频：
 
 > [纽约大学Poly（查看更多视频）](https://vimeo.com/5236104) – 由Dan Guido免费提供。
 >
@@ -40,36 +38,11 @@ categories:
 > [现代二进制开发（RPISEC） – 第15章](https://github.com/RPISEC/MBE) – 由RPISEC提供。
 >
 > [攻击性计算机安全 – 第6周](http://www.cs.fsu.edu/~redwood/OffensiveComputerSecurity/lectures.html) – 由W. Owen Redwood和Xiuwen Liu教授提供。
-
-## **付费**
-
-> [Offensive Security, ](https://www.offensive-security.com/information-security-training/)[CTP和高级Windows开发（AWE）](https://www.offensive-security.com/information-security-training/)
->
-> [针对渗透测试的SANS 660/760高级Exploit开发](https://www.sans.org/course/advanced-exploit-development-penetration-testers)
->
-> [Exodus Intelligence – 漏洞开发大师班](https://blog.exodusintel.com/2016/05/18/exodus-intelligence-2016-training-course/)
-
-# 视频：
-
-视频主要谈论fuzzing技术，工具以及最佳实践。
-
-##  纽约大学Poly课程视频
-
-> [Fuzzing 101 (Part 1)](https://vimeo.com/5236104) - Mike Zusman。
->
-> [Fuzzing 101 (Part 2)](https://vimeo.com/5237484) - Mike Zusman。
->
-> [Fuzzing 101 (2009)](https://vimeo.com/7574602) - Mike Zusman。
->
 > [Fuzzing – Coursera软件安全课程](https://www.coursera.org/learn/software-security/lecture/VgyOn/fuzzing) – 由马里兰大学提供
-
-## **会议讲座和教程**
-
+>
 > [Youtube上各种有关fuzzing的探讨](https://www.youtube.com/playlist?list=PLtPrYlwXDImiO_hzK7npBi4eKQQBgygLD)[和演示文稿播放列表](https://www.youtube.com/playlist?list=PLtPrYlwXDImiO_hzK7npBi4eKQQBgygLD) – 这些视频中有很多不错的内容
 >
 > [浏览器bug狩猎 – 最后一个人的回忆录](https://vimeo.com/109380793) – Atte Kettunen
->
-> [将基于代码覆盖率的灰盒Fuzzing视为马尔科夫链](https://www.comp.nus.edu.sg/~mboehme/paper/CCS16.pdf)
 >
 > [DerbyCon 2016：Fuzzing基础知识……或如何破解软件](http://www.securitytube.net/video/16939)
 
@@ -92,23 +65,28 @@ categories:
 > [15分钟fuzzing介绍 ](https://www.mwrinfosecurity.com/our-thinking/15-minute-guide-to-fuzzing/)- MWR安全。
 >
 > [我是如何走进黑客世界的？-MyselfExplorer博客](https://1337explorer.blogspot.com/2019/03/learn-to-hacker-for-hour.html)、[中文版介绍](<https://www.freebuf.com/articles/neopoints/190895.html>)
-
-注意：fuzzing.info已经为我们整合了许多优秀的资源，我不会重复他们的工作。我将会添加一些他们错过的论文。[Fuzzing Papers](https://fuzzing.info/papers/) - fuzzing.info
-
-> [Fuzzing Blog](https://fuzzing.info/resources/) - fuzzing.info
 >
+> [Fuzzing Papers](https://fuzzing.info/papers/) - fuzzing.info(14年以前的一些论文)
+
 > [Fuzzing中出现崩溃的根本原因分析](https://www.corelan.be/index.php/2013/02/26/root-cause-analysis-memory-corruption-vulnerabilities/) - Corelan团队。[Root cause analysis of integer flow](https://www.corelan.be/index.php/2013/07/02/root-cause-analysis-integer-overflows/) -Corelan团队。
 >
 > [Creating custom peach fuzzer publishers](http://blog.opensecurityresearch.com/2014/01/creating-custom-peach-fuzzer-publishers.html) - Open Security Research。
 >
 > [在](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/)[Fuzzing](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/)[大型开源项目之前需要考虑的七件事](https://www.linuxfoundation.org/blog/7-things-to-consider-before-fuzzing-a-large-open-source-project/) – Emily Ratliff。
+>
+> [Bright Hub](<https://www.brighthub.com/>)
+>
+> [INFOSEC](<https://resources.infosecinstitute.com/>)
+>
+> [gynvael.coldwind](<https://gynvael.coldwind.pl/>)
+>
+> 
 
 ---
 
 # Fuzzer工具
 
-1. 以时间和针对的系统的表格（待整理）
-2. 采用到的技术与时间的表格（待整理）
+1. 采用到的技术与时间的表格（待整理）
 
 有助于fuzzing应用的工具
 
@@ -193,10 +171,6 @@ categories:
 >
 > 1. [论文:《Grey-box Concolic Testing on Binary Code》(ICSE’19)](<https://2019.icse-conferences.org/event/icse-2019-technical-papers-grey-box-concolic-testing-on-binary-code>)
 > 2. [源代码](<https://github.com/SoftSec-KAIST/Eclipser>)
-
-
-
-
 
 
 
