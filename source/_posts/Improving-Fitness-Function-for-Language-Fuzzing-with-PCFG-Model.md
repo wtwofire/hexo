@@ -2,7 +2,14 @@
 title: Improving Fitness Function for Language Fuzzing with PCFG Model
 date: 2019-04-09 20:51:52
 tags:
+- 2018年
+- 适应性函数
+- 马尔科夫链
+- PCFG
+- fuzzing
 categories:
+- 论文
+- fuzzing
 ---
 
 # Abstract
@@ -11,14 +18,14 @@ categories:
 
 关键词 - 语言模糊，概率上下文无关语法，进化算法，脚本排序，马尔可夫链
 
-| relevant information |      |
-| -------------------- | ---- |
-| *作者*               |      |
-| *单位*               |      |
-| *出处*               |      |
-| *原文地址*           |      |
-| *源码地址*           |      |
-| *发表时间*           |      |
+| relevant information |                                                              |
+| -------------------- | ------------------------------------------------------------ |
+| *作者*               | Xiaoshan Sun, Yu Fu，Yun Dong，Zhihao Liu, Yang Zhang        |
+| *单位*               | Trusted Computing and Information Assurance Laboratory Institute of Software, Chinese Academy of Sciences<br> Beijing Capitek Co., Ltd |
+| *出处*               | 2018 42nd IEEE International Conference on Computer Software & Applications |
+| *原文地址*           | <https://ieeexplore.ieee.org/document/8377723>               |
+| *数据集地址*         | <https://github.com/learnbigcode/learnbigcode.github.io/blob/master/datasets/index.md> |
+| *发表时间*           | 2018年                                                       |
 
 # I  简介
 
@@ -36,7 +43,7 @@ categories:
 语言模糊测试正在积极研究中。早期的语言模糊测试工作，例如包括LangFuzz [8]，JsFunFuzz [9]和CSmith [10]，主要使用手工制作的规则来指导测试用例程序的生成。但是它们在程序生成的引导方式上彼此不同，CSmith生成的C程序覆盖了C的大部分，同时避免了未定义和未指定的行为，这些行为会破坏其自动查找错误代码错误的能力; LangFuzz [8]使用代码变异从先前生成的程序生成新程序，这些程序在解释器中触发了错误; JsFunFuzz [9]是SpiderMonkey的早期模糊器。据报道，JsFunFuzz和DOMFuzz发现了790个安全关键错误。然而，这些方法可能会退化为随机搜索[7]。
 
 我们的工作还涉及基于GP的模糊测试。进化模糊器的适应度函数通常是基于覆盖的。DeMott等人 [11]提出了一种灰盒技术来生成具有更好代码覆盖率的新输入，以通过使用块覆盖作为适应值来发现错误。 Kifetew等 [12]将随机语法与GP结合起来，通过运行被测系统与单元中所有未被解析的树并测量覆盖的分支数量以及覆盖未覆盖分支的距离来确定适合度值。 VUzzer [13]计算每个输入的适合度作为执行的基本块的频率的加权和。它们主要使用代码覆盖进行模糊测试，并且它们的适应度函数是独立于特定程序定义的。 IFuzzer [7]将结构度量，例如程序的``圈复杂度``作为遗传编程中脚本的适应值。
-机器学习方法已成功应用于统计代码实现[14]，基于n-gram模型的抄袭检测器[15]，基于n-gram语言模型的错误检测[16]，以及使用贝叶斯推理可能的错误程序行为检测[17]。将机器学习方法应用于程序分析任务的统计基础是软件的自然性，由Hinder [18]和Ray [19]研究。**基于机器学习的方法也应用于模糊测试。 Godefroid等 [20]提出了一种使用基于神经网络的技术生成新输入的方法。他们通过选择概率低于阈值pt的值来对所学习的样本分布进行采样。 Skyfire [21]学习概率上下文敏感语法以指定语法特征和语义规则，并使用学习的语法生成种子输入。 Skyfire在生成过程中更喜欢低概率生产规则，以产生不常见的输入。 TreeFuzz [22]使用类似PCFG的模型从代码语料库中学习概率分布，并通过以深度优先的方式创建树来从模型生成新数据。**
+机器学习方法已成功应用于统计代码实现[14]，基于n-gram模型的抄袭检测器[15]，基于n-gram语言模型的错误检测[16]，以及使用贝叶斯推理可能的错误程序行为检测[17]。将机器学习方法应用于程序分析任务的统计基础是软件的自然性，由Hinder [18]和Ray [19]研究。**基于机器学习的方法也应用于模糊测试。 Godefroid等 [20]提出了一种使用基于神经网络的技术生成新输入的方法。他们通过选择概率低于阈值pt的值来对所学习的样本分布进行采样。 Skyfire [21]学习概率上下文敏感语法以指定语法特征和语义规则，并使用学习的语法生成种子输入。 Skyfire在生成过程中更喜欢低概率生产规则，以产生不常见的输入。 Tree Fuzz[22]使用类似PCFG的模型从代码语料库中学习概率分布，并通过以深度优先的方式创建树来从模型生成新数据。**
 
 我们的工作在很多方面都与相关工作不同。我们建议将PCFG和Markov模型用于“错误触发”触发脚本的概念，并且我们提出了基于GP的语言模糊测试的适应度函数，而之前的工作使用基于代码覆盖的测量或代码复杂度测量。较长的脚本通常在基于PCFG的模型中具有较低的概率，因此较长的公共脚本和不常见的脚本具有较低的概率，并且模型可能无法区分它们。我们开发了一种方法来显着减少其长度的影响，以便模型可以区分不常见的脚本和常见的脚本。我们表明，我们的模型可以作为更好的适应度函数来描述“错误触发”脚本的模糊概念，而不使用代码复杂性和代码覆盖方法，并且比基于代码复杂性的方法更好地工作。
 
@@ -157,7 +164,7 @@ H(t) = − log(P^h(t))
 $$
 函数H（t）是我们方法的适应度函数。具有较低值的脚本被认为是“错误触发”对象的更好脚本。分数较高的脚本被认为更有可能触发错误。
 
-C.参数训练
+## C.参数训练
 
 等式3中的D（Ni），P（M1 | Ni）和P（Mi | Nt，Mi-1）的值可以从大的训练语料库中学习。 D（Ni）计算如下：
 $$
@@ -194,11 +201,13 @@ B.评估措施
 
 由IFuzzer，PCFG和NHF为JavaScript脚本计算的适合度值的频率直方图分别在图5,6,7中示出。这些图的水平轴表示归一化的适应值。 （即，脚本的适应值除以手动选择的值，以便可以清楚地显示图形并保留分布的形状）1在直方图中，具有较高适应值的脚本应该在“bug”中-组”。理想情况下，两组的距离应该很大。但是，实际上正常组和bug组重叠。可以注意到，在NHF的直方图中，正常组和bug组具有更大的差异。
 
-![](E:\github\hexo\source\_posts\Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model\4.jpg)
+![](Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model\4.jpg)
 
 图8显示了IFuzzer，NHF和PCFG的ROC曲线。它表明，IFuzzer的适应度函数和PCFG方法的ROC曲线都低于对角线，表明它们在预测脚本是否是错误触发方面表现不如盲目。
 
 相反，我们方法的ROC曲线高于对角线，这意味着它优于PCFG和IFuzzer。由于我们使用此适应性功能进行模糊测试，因此我们无需选择阈值。我们只在GP的迭代期间为下一代人口选择前K个脚本。图10显示了用作分类器时三个适应度函数的精确率。我们显示了不同阈值（X轴）的精度（Y轴）。这证明了前K个脚本的准确性。 IFuzzer的精度很低，并且随着阈值的增加而没有改善。当阈值大约为0.2时，PCFG的精度很高，当阈值设置为大于0.2时，PCFG的精度开始显着下降。这是因为正常组中的某些脚本的长度足以使其具有比错误组中的脚本更高的值。我们的方法对于足够大的阈值具有稳健的性能，并且如果阈值大于0.6，则精度超过80％。
+
+![](Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/6.jpg)
 
 我们还注意到，IFuzzer倾向于为普通和bugtrigger组中的复杂长脚本计算更高的适应值。为了量化适应度值和脚本长度之间的相关性，我们计算相关系数如下：
 $$
@@ -213,7 +222,7 @@ cov(S,L) = \frac {\sum_{i=1}^n(S_i − \overline S)(L_i −\overline L)}
 $$
 表I总结了不同数据集组的脚本适应度值和长度的相关系数。 IFuzzer的相关系数很高。应该注意的是，正常组中的相关系数大于IFuzzer的bug组中的相关系数。原因是bug组中的脚本通常包含相对简单的结构，因此它们的大多数适应值都很小。PCFG方法具有较小的相关系数。我们的方法进一步减少了适应值和脚本长度之间的相关性。这可能表明，使用我们的方法，脚本的适应值几乎与其长度无关。
 
-![](E:\github\hexo\source\_posts\Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model\5.jpg)
+![](Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model\5.jpg)
 
 # VI 结论
 
