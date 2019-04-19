@@ -2,23 +2,26 @@
 title: 'DeepFuzz: Automatic Generation of Syntax Valid C Programs for Fuzz Testing'
 date: 2019-04-18 11:11:49
 tags:
+- fuzzing
+- 机器学习
 categories:
+- 论文
+- fuzzing
+- 机器学习
 ---
 
 # Abstract
 
 编译器是构建软件最基本的编程工具之一。但是，生产编译器仍然存在问题。模糊测试通常用于新生成或突变输入，以便发现新的错误或安全漏洞。在本文中，我们提出了一种名为DEEPFUZZ的基于语法的模糊测试工具。基于生成的seq2seq模型，DEEPFUZZ自动且连续地生成格式良好的C程序。我们使用这组新的C程序来模糊现成的C编译器，例如GCC和Clang / LLVM。我们提供了一个详细的案例研究来分析生成的C程序的模糊测试的成功率和覆盖率改进。我们用三种采样方法和三种生成策略来分析DEEPFUZZ的性能。因此，DEEPFUZZ在行，函数和分支覆盖方面提高了测试效率。在我们的初步研究中，我们发现并报告了8个GCC漏洞，所有这些漏洞都由开发人员积极处理。
 
-
-
-| relevant information |      |
-| -------------------- | ---- |
-| *作者*               |      |
-| *单位*               |      |
-| *出处*               |      |
-| *原文地址*           |      |
-| *源码地址*           |      |
-| *发表时间*           |      |
+| relevant information |                                                              |
+| -------------------- | ------------------------------------------------------------ |
+| *作者*               | Xiao Liu, Xiaoting Li, Rupesh Prajapati, Dinghao Wu          |
+| *单位*               | College of Information Sciences and Technology<br/>The Pennsylvania State University |
+| *出处*               | *AAAI-19*                                                    |
+| *原文地址*           | <https://faculty.ist.psu.edu/wu/papers/DeepFuzz.pdf>         |
+| *源码地址*           | <https://github.com/wtwofire/deepfuzz>                       |
+| *发表时间*           | 2019年                                                       |
 
 # 1. 简介
 
@@ -95,7 +98,7 @@ $$
 
 我们提出DEEPFUZZ持续性的为模糊测试生成编译器语法正确的C程序。如概述中所述，完整的工作流程包含两个阶段，即程序生成和编译器测试。在本节中，我们将介绍更多详细信息。
 
-预处理在我们设置训练阶段之前，我们将序列分成多个固定大小的训练序列。每个训练序列的输出序列是输入序列旁边的下一个字符。我们将此培训过程配置为学习所有训练序列集的生成模型。但是，我们注意到连接序列中存在一些需要妥善处理的噪声。在预处理中，我们主要处理三个问题：注释，空格和宏。
+预处理在我们设置训练阶段之前，我们将序列分成多个固定大小的训练序列。每个训练序列的输出序列是输入序列旁边的下一个字符。我们将此训练过程配置为学习所有训练序列集的生成模型。但是，我们注意到连接序列中存在一些需要妥善处理的噪声。在预处理中，我们主要处理三个问题：注释，空格和宏。
 
 - **注释**。我们首先使用训练数据中正则表达式中的模式删除所有注释，包括行注释和块注释。
 
@@ -157,7 +160,7 @@ $$
 
 结果：表1显示了结果。
 
-![](E:\github\hexo\source\_posts\DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing\3.jpg)
+![](DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing/3.jpg)
 
 - 三个生成策略的合格率分别为82.63％，79.86％和73.23％。比较这三种不同生成策略下的通过率，我们得出结论，在NoSample下，G1在通过率方面表现最佳。
 
@@ -171,9 +174,9 @@ $$
 
 结果：覆盖改进信息如表2所示，其中包含来自GEP-5的DEEPFUZZ的10,000个新生成的C程序的增强测试套件，并且比较指标，我们也在图3中显示。
 
-![](E:\github\hexo\source\_posts\DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing\4.jpg)
+![](DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing/4.jpg)
 
-![](E:\github\hexo\source\_posts\DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing\5.jpg)
+![](DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing/5.jpg)
 
 - 在三种不同的采样方法中，Sample在行，函数和分支覆盖改进方面实现了最佳性能。例如，在生成策略G2下，NoSample，Sample和SampleSpace的线覆盖率改善分别为5.41％，7.76％和7.14％。
 - 不同采样方法的不同生成策略的覆盖率改善模式相似。G2总是最好的，G1在三者中总是最差的。换句话说，抽样方法的表现与生成策略略有关联。
@@ -186,11 +189,70 @@ $$
 - 与采样方法相比，采用生成策略是提高覆盖率的一个更有影响力的因素。例如，在SampleSpace下，三种生成策略的函数覆盖率改善百分比分别为0.17％，2.44％和1.72％。从G1变为G2后，覆盖率提高了42倍。
 -  G2和G3在覆盖率改善方面表现相似，远高于G1。
 
+**总体**。为了演示我们的工具如何在编译器模糊测试中执行，我们将DEEPFUZZ与用于编译器测试的精心设计的实用工具进行了比较。 Csmith（Yang et al.2011）是一个可以生成随机C程序的工具。为了进行公平的比较，我们记录了Csmith和DEEPFUZZ的覆盖范围改进，通过增加GCC和LLVM测试套件以及表3中的10,000个生成程序。
 
+请注意，我们在进行此分析时使用Sample作为采样方法，使用G2作为我们的生成策略。我们还记录了图4中程序生成过程中的覆盖率改进。它演示了随着新测试数量的增加，行，函数和分支覆盖范围如何得到改善。
 
+![](DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing/6.jpg)
 
+结果：
 
+- 对于所有案例，Csmith将覆盖率提高了不到1％，而DEEPFUZZ分别将行，函数和分支的覆盖率提高了7.14％，2.44％和3.21％。 DEEPFUZZ实现了比Csmith更好的覆盖率改善。
+- DEEPFUZZ的覆盖率改善模式的性能与GCC-5和Clang-3相似。
 
+![](DeepFuzz-Automatic-Generation-of-Syntax-Valid-C-Programs-for-Fuzz-Testing/7.jpg)
+
+## 3.4新错误
+
+使用不同的生成策略和抽样方法，基于GCC测试套件中的种子程序，我们可以生成新程序。因为我们的目标是编译器模糊，所以检测到的错误数量是DEEPFUZZ功效的重要指标。在我们的初步研究中，我们发现了8个新确认的GCC错误，我们将详细说明我们检测到的两个错误。
+
+**GCC错误84290**：这是我们报告的错误。 DEEP FUZZ生成两个新行（第5行和第6行），它们触发内置函数原子载荷n的内部编译器错误。触发错误是因为此函数的第一个参数应该是指针，但它指向不完整的类型。此错误已修复，并且新测试（atomic-pr81231.c）已添加到GCC中的最新测试套件中。  这个检测到的错误显示了使用语法良好但语义无意义的测试进行编译器测试的重要性。
+
+```c
+double f () {
+	double r;
+	asm ("mov %S1,%S0; mov %R1,%R0" : "=r" (r) : "i" (20));
+	asm ("mov %S1,%S0; mov %R1,%R0" : "+r" (r) : "i" (20.));
+	atomic load n ((enum E ∗) 0, 0);
+	;
+	return r;
+}
+```
+
+**GCC Bug 85443**：这是我们报告的错误。 DEEPFUZZ生成两条新行（第5行和第6行），引入了新的崩溃。生成的Atomic是用于定义原子类型的关键字，第6行的赋值触发了分段错误。这是GCC-5上新确认的错误，已在最新版本中修复。这个由DEEPFUZZ检测到的错误再次显示了使用语法上格式良好但语义无意义的测试进行编译器测试的重要性。
+
+```c
+char acDummy[0xf0] attribute (( BELOW100 ));
+unsigned short B100 attribute (( BELOW100 ));
+unsigned short ∗p = &B100;
+unsigned short wData = 0x1234;
+Atomic int i = 3;
+int a1 = sizeof (i + 1);
+void Do (void) f
+B100 = wData;
+g
+int main (void) f
+∗p = 0x9876;
+Do ();
+return (∗p == 0x1234) ? 0 : 1;
+g
+```
+
+# 4 限制
+
+观察生成的程序，我们注意到许多不正常的生成是由预期的表达式引起的。更具体地说，此错误消息表示错误，如不平衡的括号，括号或大括号。我们总结了导致这一问题的两个主要原因：缺乏训练和全局信息丢失。
+
+由于第一个原因，训练数据很丰富，但在当前训练数据集中仍然缺乏足够的重复模式来训练良好的生成模型。在我们未来的工作中，我们可以通过枚举原始测试套件中具有新变量或函数名称的所有结构来创建更大的训练数据集。另一方面，因为生成基于前缀序列，所以它将丢失一些超出前缀序列范围的全局信息。为了解决这个问题，我们要么增加训练序列的长度以确保捕获足够的信息，要么我们可以使用一些启发式方法来帮助进行模型训练。前一种方法可能导致生成的程序中的多样性较少，后一种方法需要静态程序分析的帮助。
+
+另外，我们提出的方法基于字符级序列到序列模型。我们为当前模型提供了一系列字符，这需要在处理令牌级语法时付出很多努力。它也会损害培训的可扩展性和通过率。在C中，少于32个关键字和100多个内置函数。如果我们通过Sequenceto-Sequence模型执行令牌级序列预测，则通过率和可伸缩性都将增加。
+
+# 5 相关工作
+
+多年来，人们广泛讨论了基于AI的软件安全和软件分析应用程序（Zamir，Stern和Kalech 2014; Elmishali，Stern和Kalech 2016; Nath和Domingos 2016）。基于神经网络的模型在各种应用中占主导地位，并且使用它们进行程序分析（Allamanis和Sutton 2013; Nguyen等人2013）和合成（Lin等人2017; Devlin等人2017年）的兴趣大幅增长。 ）。循环神经网络，尤其是基于序列到序列的模型，已经开发用于从大型代码语料库中学习源代码的语言模型，然后将这些模型用于多种应用，例如学习自然编码约定，代码建议，自动完成和修复语法错误（ Bhatia和Singh 2016; Hindle等人，2012）。事实证明，在提供大量数据时，提高系统效率以及节省人力是有效的。此外，基于RNN的模型适用于基于语法的模糊测试（Godefroid，Peleg和Singh 2017; Cummins等。2018）学习生成模型以生成PDF文件以模糊PDF解析器。
+
+# 6 结论和未来工作
+
+编译器测试对于确保计算系统的正确性至关重要。在本文中，我们提出了一种基于语法的自动模糊测试工具，称为DEEPFUZZ，它学习生成的递归神经网络，不断生成语法正确的C程序，以模糊现成的生产编译器。 DEEPFUZZ生成了82.63％语法有效的C程序，并提高了行，函数和分支覆盖的测试效率。我们还发现了开发人员正在积极解决的新漏洞。
 
 
 
